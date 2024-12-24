@@ -11,6 +11,10 @@
             <xpath expr="//div[@name='amount_div']" position="after">
                 <field name="amount_to_word" invisible="1"/>
             </xpath>
+            
+            <xpath expr="//field[@name='memo']" position="after">
+                <field name="no_kwitansi" string="No. Kwitansi" readonly="state == 'paid'"/>
+            </xpath>
         </field>
     </record>
 </odoo>

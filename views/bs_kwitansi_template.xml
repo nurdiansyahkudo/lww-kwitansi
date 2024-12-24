@@ -60,7 +60,7 @@
                                 <br/>
                                 <div class="text" style="font-size: 24px;">
                                     <strong style='color: blue;'>No</strong> :
-                                    <span t-field="o.name"/>
+                                    <span t-field="o.no_kwitansi"/>
                                 </div>
                             </div>
                         </div>
