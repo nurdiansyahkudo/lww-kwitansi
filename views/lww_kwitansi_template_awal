@@ -1,0 +1,267 @@
+
+    <template id="lww_kwitansi_html_template">
+        <div style="width: 100%; margin: 0 auto; font-family: Arial, sans-serif; font-size: 14px;">
+            <!-- Header Section -->
+            <div style="border-bottom: 1px solid #000; margin-bottom: 10px; width: 100%;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 70%; font-size: 14px;">
+                            <strong>Date: </strong>
+                            <span>25 - 11 - 2024</span>
+                        </td>
+                        <td style="width: 30%; text-align: right; font-size: 14px;">
+                            <strong>Due: </strong>
+                            <span>9 - 12 - 2024</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Logo & Title -->
+            <div style="text-align: center; margin-bottom: 15px;">
+                <img t-if="res_company.logo" t-att-src="'data:image/png;base64,%s' % res_company.logo.decode()" 
+                    style="max-width: 100px; height: auto;" />
+                <h2 style="margin: 5px 0; font-size: 20px; text-transform: uppercase;">KWITANSI</h2>
+            </div>
+
+            <!-- Content Section -->
+            <div>
+                <p><strong>No: </strong> KWT/LWW/18.0393/2024</p>
+                <p><strong>Sudah terima dari: </strong> Abadi Electric</p>
+                <p>Jakarta</p>
+
+                <p><strong>Banyaknya uang: </strong></p>
+                <div style="border: 1px solid #000; padding: 10px; width: 50%; font-size: 14px; margin-bottom: 10px;">
+                    Dua Puluh Rupiah
+                </div>
+
+                <p><strong>Untuk Pembayaran: </strong> Pengadaan...</p>
+            </div>
+
+            <!-- Bank Information -->
+            <div style="margin-top: 20px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <tr>
+                        <td><strong>Nama Bank: </strong> BRI Cabang Kramat - Giro Umum (IDR)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>No Rekening: </strong> 0335.01.000810.30.7</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nama: </strong> PT. LIMAWIRA WISESA</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Footer Section -->
+            <div style="margin-top: 30px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                    <tr>
+                        <td style="width: 50%;">
+                            <div style="border: 1px solid #000; padding: 5px; width: 50%;">
+                                <strong>Jumlah:</strong> IDR <span style="float: right;">20,00</span>
+                            </div>
+                        </td>
+                        <td style="text-align: right;">
+                            <p>Hormat kami,</p>
+                            <p style="margin-top: 50px; font-weight: bold;">Hendarto Suryono P.</p>
+                            <p>Direktur</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Notes -->
+            <div style="margin-top: 20px; font-size: 12px;">
+                <p>
+                    Mohon bukti transfer dikirim ke email: 
+                    <strong>finance@limawira.com</strong>, harap cantumkan No. Invoice.
+                </p>
+            </div>
+        </div>
+    </template>
+
+    <template id="lww_kwitansi_template">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+          <t t-set="company" t-value="res_company"/>
+          <main>
+            <div class="page">
+              <div class="header">
+                <table style="width: 100%; border-bottom: 1px solid #000; margin-bottom: 10px;">
+                  <tr>
+                    <td style="width: 70%; font-size: 14px;">
+                      <strong>Date: </strong>
+                      <span t-esc="o.invoice_date.strftime('%d - %m - %Y')" />
+                    </td>
+                    <td style="width: 30%; text-align: right; font-size: 14px;">
+                      <strong>Due: </strong>
+                      <span t-esc="o.invoice_date_due.strftime('%d - %m - %Y')" />
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="company-header">
+                  <div class="left-column">
+                      <h2 style="margin: 5px 0; font-size: 20px;">KWITANSI</h2>
+                  </div>
+                  <div class="right-column">
+                      <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo.decode()" style="max-width: 100px; height: auto;"/>
+                  </div>
+              </div>
+
+              <div class="body">
+                <p><strong>No: </strong> KWT/LWW/18.0393/2024</p>
+                <p><strong>Sudah terima dari: </strong> <span t-field="o.partner_id.name"/></p>
+                <p t-field="o.partner_id.street"/><br/>
+                <p><span t-field="o.partner_id.city"/>, <span t-field="o.partner_id.zip"/></p>
+                <p><strong>Banyaknya uang: </strong>
+                  <div class="amount">
+                    <!-- <t t-esc="convert_to_words(o.price_subtotal)"/> Rupiah -->
+                  </div>
+                </p>
+                <p><strong>Untuk Pembayaran: </strong></p>
+              </div>
+
+              <table class="bank-details" style="width: 100%; margin-top: 10px; font-size: 14px;">
+                <tr>
+                  <td><strong>Nama Bank: </strong> BRI Cabang Kramat - Giro Umum (IDR)</td>
+                  <td><strong>No Rekening: </strong> 0335.01.000810.30.7</td>
+                </tr>
+                <tr>
+                  <td><strong>Nama: </strong> PT. LIMAWIRA WISESA</td>
+                  <td><strong>Jumlah:</strong> IDR </td>
+                </tr>
+              </table>
+
+              <div class="footer">
+                <table style="width: 100%; margin-top: 30px; font-size: 14px;">
+                  <tr>
+                    <td>
+                      <div style="border: 1px solid #000; padding: 5px; width: 20%;">
+                        <strong>Jumlah:</strong> IDR <span style="float: right;">20,00</span>
+                      </div>
+                    </td>
+                    <td style="text-align: right;">
+                      <p>Hormat kami,</p>
+                      <p style="margin-top: 50px; font-weight: bold;">Hendarto Suryono P.</p>
+                      <p>Direktur</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="notes">
+                <p style="margin-top: 20px; font-size: 12px;">
+                  Mohon bukti transfer dikirim ke email: <strong>finance@limawira.com</strong>, harap cantumkan No. Invoice.
+                </p>
+              </div>
+            </div>
+          </main>
+        </t>
+      </t>
+    </template>
+
+<odoo>
+	<data>
+
+		<template id="kwitansi_doc">
+			<t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div>
+                            <h3 class="text-center mb32">
+                                <strong>Kwitansi</strong>
+                            </h3>
+                    </div>
+                    <div class='row'>
+                            <div class='col-3'>
+                              Sudah terima dari<br/>
+                              Jumlah nilai<br/>
+                              
+                            </div>
+                           
+                            <div class='col-9'>
+                            : <span t-esc='o.partner_id.name'/>
+                              <table width='100%' ><tr class='text text-center' style='background-color:#efefef;border: 1px solid ;' >
+                              <th  >
+                              <span    t-esc='o.terbilang'/><br/>
+                              </th></tr>
+                              </table>
+                            </div>
+                    </div>
+                        
+                    <div class='row'>
+                            <div class='col-3'>
+                              Untuk Pembayaran
+                            </div>  
+                            <div class='col-9'>
+                              <div t-foreach="o.reconciled_invoice_ids" t-as="inv">
+                                
+                                : <span t-field="inv.number"/>
+                                </div>
+                            
+                          
+                            </div>  
+                    </div>  
+                      <div class='row'>
+                            <div class='col-3'>
+                              Keterangan
+                            </div>  
+                            <div class='col-9'>
+                                : <span t-field="o.ket"/>
+                          
+                            </div>  
+                    </div>  
+  
+                             <br/>
+                    <div class='row'>
+                            <div class='col-4'>
+                              <table width='100%' >
+                              <tr class='text text-center' style='background-color:#efefef;border-top: 1px solid ;border-bottom: 1px solid ;' >
+                              <th>  
+                              <span style='font-size:26px;padding-top:10px;padding-bottom:10px;' t-esc='o.amount' 
+                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'  />
+                              </th>
+                            </tr> </table>
+                            </div>
+                          <div class='col-4'>
+                            </div>
+                            <div class='col-4 text text-center'>
+                            Surabaya,
+                               <br/><br/>
+                           <div>Rio G</div>
+                           <div>SPV Finance dan Accounting </div>
+                        
+                            </div>
+                        
+                    </div> 
+                        
+                        
+                        
+                        
+                        
+                    <br/>
+
+
+              
+                
+               
+                </div>
+            </t>
+	
+
+		</template>
+
+		<template id="kwitansi">
+			<t t-call="web.html_container">
+				<t t-foreach="docs" t-as="o">
+					<t t-call="mbf_kwitansi.kwitansi_doc"  t-lang="o.partner_id.lang"/>
+				</t>
+			</t>
+		</template>
+
+	</data>
+</odoo>
