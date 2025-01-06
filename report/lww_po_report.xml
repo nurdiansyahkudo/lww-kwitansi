@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- LIMAWIRA -->
+        <report
+            id="lww_po_report"
+            model="purchase.order"
+            string="Purchase Order"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.lww_po_template"
+            file="lww_kwitansi.lww_po_template"
+            print_report_name="'Purchase Order - %s' % (object.no_po)"
+        />
+
+        <!-- BINA SERVICE -->
+        <report
+            id="bs_po_report"
+            model="purchase.order"
+            string="Purchase Order"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.bs_po_template"
+            file="lww_kwitansi.bs_po_template"
+            print_report_name="'Purchase Order - %s' % (object.no_po)"
+        />
+        
+        <!-- SPARTADUA RIBUJAYA -->
+        <report
+            id="spartadua_po_report"
+            model="purchase.order"
+            string="Purchase Order"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.spartadua_po_template"
+            file="lww_kwitansi.spartadua_po_template"
+            print_report_name="'Purchase Order - %s' % (object.no_po)"
+        />
+
+        <!-- PAPERFORMAT LANDSCAPE -->
+        <record id="paperformat_landscape" model="report.paperformat">
+            <field name="name">Landscape Format</field>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- LIMAWIRA -->
+        <record id="action_report_limawira_po" model="ir.actions.report">
+            <field name="name">Print PO</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">lww_kwitansi.lww_po_template</field>
+            <field name="report_file">lww_kwitansi.lww_po_template</field>
+            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- BINA SERVICE -->
+        <record id="action_report_bs_po" model="ir.actions.report">
+            <field name="name">Print PO Bina Service</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">lww_kwitansi.bs_po_template</field>
+            <field name="report_file">lww_kwitansi.bs_po_template</field>
+            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+        </record>
+
+        <!-- SPARTADUA RIBUJAYA -->
+        <record id="action_report_spartadua_po" model="ir.actions.report">
+            <field name="name">Print PO Spartadua</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">lww_kwitansi.spartadua_po_template</field>
+            <field name="report_file">lww_kwitansi.spartadua_po_template</field>
+            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_landscape"/>
+        </record>
+    </data>
+</odoo>

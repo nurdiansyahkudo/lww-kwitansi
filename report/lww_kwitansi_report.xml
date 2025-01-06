@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- LIMAWIRA -->
         <report
             id="lww_kwitansi_report"
             model="account.payment"
@@ -8,9 +9,10 @@
             report_type="qweb-pdf"
             name="lww_kwitansi.lww_kwitansi_template"
             file="lww_kwitansi.lww_kwitansi_template"
-            print_report_name="'Kwitansi - %s' % (object.name)"
+            print_report_name="'Kwitansi - %s' % (object.no_kwitansi)"
         />
 
+        <!-- BINA SERVICE -->
         <report
             id="bs_kwitansi_report"
             model="account.payment"
@@ -18,9 +20,35 @@
             report_type="qweb-pdf"
             name="lww_kwitansi.bs_kwitansi_template"
             file="lww_kwitansi.bs_kwitansi_template"
-            print_report_name="'Kwitansi - %s' % (object.name)"
+            print_report_name="'Kwitansi - %s' % (object.no_kwitansi)"
+        />
+        
+        <!-- SPARTADUA RIBUJAYA -->
+        <report
+            id="spartadua_kwitansi_report"
+            model="account.payment"
+            string="Kwitansi"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.spartadua_kwitansi_template"
+            file="lww_kwitansi.spartadua_kwitansi_template"
+            print_report_name="'Kwitansi - %s' % (object.no_kwitansi)"
         />
 
+        <!-- PAPERFORMAT LANDSCAPE -->
+        <record id="paperformat_landscape" model="report.paperformat">
+            <field name="name">Landscape Format</field>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- LIMAWIRA -->
         <record id="action_report_limawira_kwitansi" model="ir.actions.report">
             <field name="name">Print Kwitansi</field>
             <field name="model">account.payment</field>
@@ -34,6 +62,7 @@
             <field name="groups_id" eval="[(4, ref('account.group_account_invoice')), (4, ref('account.group_account_readonly'))]"/>
         </record>
 
+        <!-- BINA SERVICE -->
         <record id="action_report_bs_kwitansi" model="ir.actions.report">
             <field name="name">Print Kwitansi Bina Service</field>
             <field name="model">account.payment</field>
@@ -44,6 +73,21 @@
             <field name="report_type">qweb-pdf</field>
             <field name="binding_model_id" ref="account.model_account_payment"/>
             <field name="binding_type">report</field>
+            <field name="groups_id" eval="[(4, ref('account.group_account_invoice')), (4, ref('account.group_account_readonly'))]"/>
+        </record>
+
+        <!-- SPARTADUA RIBUJAYA -->
+        <record id="action_report_spartadua_kwitansi" model="ir.actions.report">
+            <field name="name">Print Kwitansi Spartadua</field>
+            <field name="model">account.payment</field>
+            <field name="report_name">lww_kwitansi.spartadua_kwitansi_template</field>
+            <field name="report_file">lww_kwitansi.spartadua_kwitansi_template</field>
+            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_landscape"/>
             <field name="groups_id" eval="[(4, ref('account.group_account_invoice')), (4, ref('account.group_account_readonly'))]"/>
         </record>
     </data>
