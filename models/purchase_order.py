@@ -5,7 +5,7 @@ from num2words import num2words
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    no_po = fields.Char(string='Order Number', store=True)
+    no_po = fields.Char(string='Order Number', store=True, required=True)
 
     def action_print_report(self):
         company = self.env['res.company'].browse(self.env.company.id)
