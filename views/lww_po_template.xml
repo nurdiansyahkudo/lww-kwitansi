@@ -30,7 +30,7 @@
                     </div>
                     <!-- Main Section -->
                     <main>
-                        <div class="page" style="padding: 1px;">
+                        <div class="page" style="padding: 10px;">
                             <!-- Address Section -->
                             <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid #35bdaf">
                                 <div class="col-6 text-left">
@@ -220,9 +220,9 @@
                                             <!-- Disc -->
                                                 <td class="text-center" style="font-size: 15px;"><span t-esc="int(line.discount) or '0'" style="font-size: 15px;"/>%</td>
                                             <!-- Unit Price -->
-                                                <td class="text-center" style="font-size: 15px;"><span t-esc="'{:,.2f}'.format(line.price_unit) or ''" style="font-size: 15px;"/></td>
+                                                <td class="text-right" style="font-size: 15px; text-align: right;"><span t-esc="'{:,.2f}'.format(line.price_unit) or ''" style="font-size: 15px; text-align: right;"/></td>
                                             <!-- Total -->
-                                                <td class="text-center" style="font-size: 15px;"><span t-esc="'{:,.2f}'.format(line.price_subtotal) or ''"  style="font-size: 15px;"/></td>
+                                                <td class="text-right" style="font-size: 15px; text-align: right;"><span t-esc="'{:,.2f}'.format(line.price_subtotal) or ''"  style="font-size: 15px; text-align: right;"/></td>
                                             <!-- Currency -->
                                                 <td class="text-center" style="font-size: 15px;"><span t-esc="o.currency_id.name or ''" style="font-size: 15px;"/></td>
                                             </tr>
@@ -238,45 +238,66 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- Total Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px;">
-                                <table class="table table-sm" style="margin-left: 5.5rem; margin-bottom: 5px; border: 0.5px; width: 80%;">
-                                    <thead style="border: 0.5px;">
-                                        <tr>
-                                            <th colspan="4" style="font-weight: bold; font-size: 16px; text-align: center; background-color: #efefef">
-                                                T  O  T  A  L
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th style="font-size: 16px; text-align: center; font-weight: bold;">CURRENCY</th>
-                                            <th style="font-size: 16px; text-align: center; font-weight: bold;">SUB TOTAL</th>
-                                            <th style="font-size: 16px; text-align: center; font-weight: bold;">TAX</th>
-                                            <th style="font-size: 16px; text-align: center; font-weight: bold;">GRAND TOTAL</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <!-- Currency -->
-                                            <td class="text-center" style="font-size: 15px;"><span t-esc="o.currency_id.name or ''" style="font-size: 15px;"/></td>
-                                        <!-- Sub Total -->
-                                            <td class="text-center" style="font-size: 15px;"><span t-esc="'{:,.2f}'.format(o.amount_untaxed)" style="font-size: 15px;"/></td>
-                                        <!-- Tax -->
-                                            <td class="text-center" style="font-size: 15px;"><span t-esc="'{:,.2f}'.format(o.amount_tax)" style="font-size: 15px;"/></td>
-                                        <!-- Grand Total -->
-                                            <td class="text-center" style="font-size: 15px;"><span t-esc="'{:,.2f}'.format(o.amount_total)" style="font-size: 15px;"/></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- Note Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px;">
-                                <div class="col-6 text-left">
-                                    <div class='row'>
-                                        <div class='col-3'>
-                                            <p style='text-align: right; font-size: 16px;'>NOTE : </p>
+                            <div style="page-break-after:auto;">
+                                <!-- Total Section -->
+                                <div class="row" style="margin-bottom: 5px; margin-top: 10px;">
+                                    <table class="table table-sm" style="margin-left: 5.5rem; margin-bottom: 5px; border: 0.5px; width: 80%;">
+                                        <thead style="border: 0.5px;">
+                                            <tr>
+                                                <th colspan="4" style="font-weight: bold; font-size: 16px; text-align: center; background-color: #efefef">
+                                                    T  O  T  A  L
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th style="font-size: 16px; text-align: center; font-weight: bold;">CURRENCY</th>
+                                                <th style="font-size: 16px; text-align: center; font-weight: bold;">SUB TOTAL</th>
+                                                <th style="font-size: 16px; text-align: center; font-weight: bold;">TAX</th>
+                                                <th style="font-size: 16px; text-align: center; font-weight: bold;">GRAND TOTAL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <!-- Currency -->
+                                                <td class="text-center" style="font-size: 15px;"><span t-esc="o.currency_id.name or ''" style="font-size: 15px;"/></td>
+                                            <!-- Sub Total -->
+                                                <td class="text-center" style="font-size: 15px;"><span t-esc="'{:,.2f}'.format(o.amount_untaxed)" style="font-size: 15px;"/></td>
+                                            <!-- Tax -->
+                                                <td class="text-center" style="font-size: 15px;"><span t-esc="'{:,.2f}'.format(o.amount_tax)" style="font-size: 15px;"/></td>
+                                            <!-- Grand Total -->
+                                                <td class="text-center" style="font-size: 15px;"><span t-esc="'{:,.2f}'.format(o.amount_total)" style="font-size: 15px;"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Note Section -->
+                                <div class="row" style="margin-bottom: 10px; margin-top: 10px;">
+                                    <div class="col-6 text-left">
+                                        <div class='row'>
+                                            <div class='col-3'>
+                                                <p style='text-align: right; font-size: 16px;'>NOTE : </p>
+                                            </div>
+                                            <div class='col-9' style='font-size: 16px; border: 1px; margin-left: 0.5rem;'>
+                                                <span t-esc="o.notes or ''"/>
+                                            </div>
                                         </div>
-                                        <div class='col-9' style='font-size: 16px; border: 1px; margin-left: 0.5rem;'>
-                                            <span t-esc="o.notes or ''"/>
+                                    </div>
+                                </div>
+                                <!-- Signature Section -->
+                                <div style="page-break-after: auto;">
+                                    <div class="row" style="margin-bottom: 5px; margin-top: 120px;">
+                                        <div class="col-4"></div>
+                                        <div class="col-4">
+                                            <p style='text-align: center; font-size: 16px;'>Yours Faithfully, </p>
+                                        </div>
+                                        <div class="col-4"></div>
+                                    </div>
+                                    <div class="row" style="margin-bottom: 5px; margin-top: 120px;">
+                                        <div class="col-4 text-center">
+                                            <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%; margin-left: 30px;"></p>
+                                        </div>
+                                        <div class="col-4"></div>
+                                        <div class="col-4 text-center">
+                                            <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%; margin-left: 30px;"></p>
                                         </div>
                                     </div>
                                 </div>

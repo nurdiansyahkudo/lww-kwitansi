@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="col-4" style="height: 150px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="text" style="font-size: 26px; text-align: left; padding-left: 2.5rem; padding-top: 25px;">
+                            <div class="text" style="font-size: 26px; text-align: center; padding-left: 2.5rem; padding-top: 25px;">
                                 <h1 style="font-size: 26px;">
                                     <strong><u>PURCHASE ORDER</u></strong>
                                 </h1>
@@ -152,11 +152,11 @@
                                             <!-- No -->
                                                 <td class="text-center" style="font-weight: bold;"><span t-esc="counter" style="font-weight: bold; text-align: center;"/></td>
                                             <!-- Part Number -->
-                                                <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.default_code or ''" style="font-size: 15px;"/></td>
+                                                <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.default_code or '-'" style="font-size: 15px;"/></td>
                                             <!-- Product Name -->
-                                                <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.name or ''" style="font-size: 15px;"/></td>
+                                                <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.name or '-'" style="font-size: 15px;"/></td>
                                             <!-- Price -->
-                                                <td class="text-center" style="font-size: 15px; text-align: right;"><span t-esc="'{:,.2f}'.format(line.price_unit) or ''" style="font-size: 15px; text-align: right;"/></td>
+                                                <td class="text-right" style="font-size: 15px; text-align: right;"><span t-esc="'{:,.2f}'.format(line.price_unit) or ''" style="font-size: 15px; text-align: right;"/></td>
                                             <!-- QTY -->
                                                 <td class="text-center" style="font-size: 15px; "><span t-esc="int(line.product_qty) or ''" style="font-size: 15px;"/></td>
                                             <!-- Unit -->
@@ -168,31 +168,32 @@
                                             <!-- Rate -->
                                                 <td class="text-center" style="font-size: 15px;"></td>
                                             <!-- Amount -->
-                                                <td class="text-center" style="font-size: 15px; text-align: right;"><span t-esc="'{:,.2f}'.format(line.price_subtotal) or ''"  style="font-size: 15px; text-align: right;"/></td>
+                                                <td class="text-right" style="font-size: 15px; text-align: right;"><span t-esc="'{:,.2f}'.format(line.price_subtotal) or ''"  style="font-size: 15px; text-align: right;"/></td>
                                             <!-- Remarks -->
-                                                <td class="text-center" style="font-size: 15px;">
-                                                    <span t-esc="line.description_sale or ''" style="font-size: 15px;"/> 
-                                                </td>
+                                                <td class="text-center" style="font-size: 15px;"></td>
+                                                <!-- <td class="text-center" style="font-size: 15px;">
+                                                    <span t-esc="line.product_id.description_sale or ''" style="font-size: 15px;"/> 
+                                                </td> -->
                                             </tr>
                                         </t>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="row">
-                                <div class="col-6 text-left">
+                                <div class="col-6 text-left" style="margin-top: 20px;">
                                 <!-- Signature -->
                                     <div class="row" style="margin-bottom: 10px; margin-top: 10px;">
                                         <div class='col-6'>
-                                            <p style='text-align: center; font-size: 16px;'>Prepared by, </p>
+                                            <p style='text-align: left; font-size: 16px; margin-left: 75px;'>Prepared by, </p>
                                             <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%;"></p>
                                         </div>
                                         <div class='col-6' style='font-size: 16px; margin-left: 0.5rem;'>
-                                            <p style='text-align: center; font-size: 16px;'>Approved by, </p>
+                                            <p style='text-align: left; font-size: 16px; margin-left: 75px;'>Approved by, </p>
                                             <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%;"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-6" style="margin-top: 10px;">
                                 <!-- Total -->
                                     <div class='row' style="margin-bottom: 5px; margin-top: 5px;">
                                         <div class="col-8">

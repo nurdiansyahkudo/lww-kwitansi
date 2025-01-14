@@ -1,4 +1,27 @@
 <odoo>
+    <!-- PO Tree -->
+    <record id="purchase_order_view_tree_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.tree.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="no_po" string="Order Number" optional="show" required="1"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- RFQ Tree -->
+    <record id="purchase_order_kpis_tree_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.kpis.tree.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="no_po" string="Order Number" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- PO Form -->
     <record id="purchase_order_form_inherit" model="ir.ui.view">
         <field name="name">purchase.order.form.inherit</field>
         <field name="model">purchase.order</field>
