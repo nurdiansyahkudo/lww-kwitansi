@@ -37,7 +37,7 @@
                                     <p style='text-align: left; font-size: 14px;'>Date</p>
                                 </div>
                                 <div class='col-9' style='font-size: 14px; border: 1px;'>
-                                    : <span t-esc="o.date_approve.strftime('%d-%b-%y') or ''"/>
+                                    : <span t-esc="(o.date_order or o.date_approve).strftime('%d-%b-%y') if (o.date_order or o.date_approve) else ''" style="font-size: 15px;"/>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                             &amp;nbsp;Delivery Date
                                         </td>
                                         <td class="col-9" style="border: 1px solid;">
-                                            <span t-esc="o.effective_date.strftime('%d-%b-%y') or ''" style="text-align: left; font-size: 14px; margin-left: 5px;"/>
+                                            <span t-esc="o.date_planned.strftime('%d-%b-%y') or ''" style="text-align: left; font-size: 14px; margin-left: 5px;"/>
                                         </td>
                                     </tr>
                                     <tr>

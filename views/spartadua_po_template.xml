@@ -103,7 +103,7 @@
                                                 &amp;nbsp;Purchase order Date
                                             </td>
                                             <td class="col-8" style="border: 1px solid; border-left: none; border-bottom: none; border-top: none;">
-                                                : <span t-esc="o.date_approve.strftime('%d-%b-%y') or '-'" style="text-align: left; font-size: 16px; margin-left: 5px;"/>
+                                                : <span t-esc="(o.date_order or o.date_approve).strftime('%d-%b-%y') if (o.date_order or o.date_approve) else ''" style="font-size: 15px;"/>
                                             </td>
                                         </tr>
                                         <tr>
