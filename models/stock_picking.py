@@ -2,7 +2,7 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 from num2words import num2words
 
-class PurchaseOrder(models.Model):
+class StockPicking(models.Model):
     _inherit = "stock.picking"
 
     no_do = fields.Char(string='DO Number', store=True, required=True)
