@@ -63,7 +63,7 @@
         </record>
 
         <!-- LIMAWIRA -->
-        <record id="action_report_limawira_po" model="ir.actions.report">
+        <record id="action_report_limawira_do" model="ir.actions.report">
             <field name="name">Print DO</field>
             <field name="model">stock.picking</field>
             <field name="report_name">lww_kwitansi.lww_do_template</field>
@@ -77,7 +77,7 @@
         </record>
 
         <!-- BINA SERVICE -->
-        <record id="action_report_bs_po" model="ir.actions.report">
+        <record id="action_report_bs_do" model="ir.actions.report">
             <field name="name">Print DO Bina Service</field>
             <field name="model">stock.picking</field>
             <field name="report_name">lww_kwitansi.bs_do_template</field>
@@ -91,7 +91,7 @@
         </record>
 
         <!-- SPARTADUA RIBUJAYA -->
-        <record id="action_report_spartadua_po" model="ir.actions.report">
+        <record id="action_report_spartadua_do" model="ir.actions.report">
             <field name="name">Print DO Spartadua</field>
             <field name="model">stock.picking</field>
             <field name="report_name">lww_kwitansi.spartadua_do_template</field>
