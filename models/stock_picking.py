@@ -22,7 +22,7 @@ class StockPicking(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             if 'no_do' in vals and vals['no_do']:
-                existing_record = self.env['stock_picking'].search([
+                existing_record = self.env['stock.picking'].search([
                     ('no_do', '=', vals['no_do'])
                 ], limit=1)
                 if existing_record:
@@ -32,7 +32,7 @@ class StockPicking(models.Model):
     def write(self, vals):
         if 'no_do' in vals and vals['no_do']:
             for record in self:
-                existing_record = self.env['stock_picking'].search([
+                existing_record = self.env['stock.picking'].search([
                     ('no_do', '=', vals['no_do']),
                     ('id', '!=', record.id)
                 ], limit=1)
