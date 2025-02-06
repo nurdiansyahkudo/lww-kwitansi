@@ -1,4 +1,19 @@
 <odoo>
+    <!-- DO Form -->
+    <record id="stock_picking_form_inherit" model="ir.ui.view">
+        <field name="name">stock_picking.form.inherit</field>
+        <field name="model">stock_picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='do_print_picking']" position="replace">
+                <button name="action_print_report" groups="stock.group_stock_user" type="object" invisible="state != 'assigned'" data-hotkey="o"/>
+            </xpath>
+            
+            <xpath expr="//field[@name='location_id']" position="after">
+                <field name="no_do" string="DO Number" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')"/>
+            </xpath>
+        </field>
+    </record>
     <!-- DO Tree -->
     <record id="stock_picking_view_tree_inherit" model="ir.ui.view">
         <field name="name">stock.picking.tree.inherit</field>
@@ -7,32 +22,6 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
                 <field name="no_do" string="DO Number" optional="show"/>
-            </xpath>
-        </field>
-    </record>
-    <!-- RFQ Tree -->
-    <!-- <record id="purchase_order_kpis_tree_inherit" model="ir.ui.view">
-        <field name="name">purchase.order.kpis.tree.inherit</field>
-        <field name="model">purchase.order</field>
-        <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="no_po" string="Order Number" optional="show"/>
-            </xpath>
-        </field>
-    </record> -->
-    <!-- DO Form -->
-    <record id="stock_picking_form_inherit" model="ir.ui.view">
-        <field name="name">stock_picking.form.inherit</field>
-        <field name="model">stock_picking</field>
-        <field name="inherit_id" ref="stock.view_picking_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//button[@name='do_print_picking']" position="replace">
-                <button name="action_print_report" type="object" string="Print" class="oe_highlight"/>
-            </xpath>
-            
-            <xpath expr="//field[@name='location_id']" position="after">
-                <field name="no_do" string="DO Number" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')"/>
             </xpath>
         </field>
     </record>
