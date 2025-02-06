@@ -202,9 +202,9 @@
                                             <!-- No -->
                                                 <td class="text-center" style="font-weight: bold;"><span t-esc="counter" style="font-weight: bold; text-align: center;"/></td>
                                             <!-- Serial Number -->
-                                                <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.default_code or ''" style="font-size: 15px;"/></td>
+                                                <td class="text-center" style="font-size: 15px;"></td>
                                             <!-- Part Number -->
-                                                <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.name or ''" style="font-size: 15px;"/></td>
+                                                <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.default_code or ''" style="font-size: 15px;"/></td>
                                             <!-- Product Name -->
                                                 <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.name or ''" style="font-size: 15px;"/></td>
                                             <!-- QTY -->
