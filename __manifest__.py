@@ -17,9 +17,15 @@
         'views/lww_po_template.xml',
         'views/bs_po_template.xml',
         'views/spartadua_po_template.xml',
+        # DELIVERY ORDER
+        'report/lww_do_report.xml',
+        'views/lww_do_template.xml',
+        # 'views/bs_do_template.xml',
+        # 'views/spartadua_do_template.xml',
         # FORM VIEW
         'views/account_payment_view.xml',
         'views/purchase_order_view.xml',
+        'views/stock_picking_view.xml',
         # 'views/header_template.xml',
     ],
     'installable': True,
