@@ -41,4 +41,4 @@ class StockPicking(models.Model):
         return super().write(vals)
     
     def get_print_report_name(self):
-        return 'Purchase Order - %s' % (self.no_do)
+        return 'Delivery Order - %s' % (self.no_do)

@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="stock.vpicktree"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <field name="no_po" string="DO Number" optional="show"/>
+                <field name="no_do" string="DO Number" optional="show"/>
             </xpath>
         </field>
     </record>
