@@ -8,6 +8,9 @@
             <xpath expr="//button[@name='do_print_picking']" position="replace">
                 <button name="action_print_report" groups="stock.group_stock_user" type="object" invisible="state != 'assigned'" data-hotkey="o" class="oe_highlight" string="Print DO"/>
             </xpath>
+            <xpath expr="//widget[@name='signature']" position="after">
+                <button name="action_print_report" groups="stock.group_stock_user" type="object" invisible="state != 'done'" data-hotkey="o" class="oe_highlight" string="Print DO"/>
+            </xpath>
             
             <xpath expr="//field[@name='location_id']" position="after">
                 <field name="no_do" string="DO Number" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')"/>

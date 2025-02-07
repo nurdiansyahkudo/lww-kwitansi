@@ -6,18 +6,19 @@
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
                     <!-- Header Section -->
-                    <div class="row" style="border-bottom: 2px solid #35bdaf;">
+                    <div class="row" style="border-bottom: 2px solid rgb(0, 0, 0);">
                         <div class="col-6" style="height: 150px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="text" style="font-size: 30px; text-align: left; padding-left: 2.5rem; padding-top: 50px;">
-                                <h1 style="font-size: 2rem;">
+                            <div class="text" style="font-size: 30px; text-align: left; padding-top: 100px;">
+                                <h1 style="font-size: 2.5rem;">
                                     <strong>DELIVERY ORDER</strong>
                                 </h1>
                             </div>
                         </div>
                         <div class="col-6">
-                            <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" 
-                            style="max-width: 350px; height: auto;" />
+                            <!-- <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" 
+                            style="max-width: 350px; height: auto;" /> -->
                             <div style="font-size: 12px; line-height: 1.5; text-align: right;">
+                                <p style="font-weight: bold; margin-bottom: 2px; font-size: 30px;"><em><span t-esc="o.company_id.name or ''" style="font-weight: bold;"/></em></p>
                                 <p>
                                     <span t-esc="o.company_id.street"/> <br/>
                                     <span t-esc="o.company_id.city"/> - <span t-esc="o.company_id.zip"/>, 
@@ -32,128 +33,128 @@
                     <main>
                         <div class="page" style="padding: 10px;">
                             <!-- Address Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid #35bdaf">
+                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid rgb(0, 0, 0)">
                                 <div class="col-6 text-left">
-                                    <strong style="font-size: 16px; margin-left: 5rem;">To: </strong>
+                                    <strong style="font-size: 16px;">Sold To: </strong>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Name: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Name </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.partner_id.name'/>
+                                            : <span t-esc='o.partner_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Address: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Address </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.partner_id.street'/>
+                                            : <span t-esc='o.partner_id.street'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>City: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>City </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.partner_id.city'/>
+                                            : <span t-esc='o.partner_id.city'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Region: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Region </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.partner_id.state_id.name'/>
+                                            : <span t-esc='o.partner_id.state_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Country: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Country </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.partner_id.country_id.name'/>
+                                            : <span t-esc='o.partner_id.country_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Phone: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Phone </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.partner_id.phone'/>
+                                            : <span t-esc='o.partner_id.phone'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Fax: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Fax </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.partner_id.mobile'/>
+                                            : <span t-esc='o.partner_id.mobile'/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-6 text-right" style="margin-left: 1rem; ">
-                                    <strong style="font-size: 16px; margin-left: 5rem;">Ship To: </strong>
+                                    <strong style="font-size: 16px;">Delivery To: </strong>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Name: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Name </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.name'/>
+                                            : <span t-esc='o.partner_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Address: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Address </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.street'/>
+                                            : <span t-esc='o.partner_id.street'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>City: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>City </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.city'/>
+                                            : <span t-esc='o.partner_id.city'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Region: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Region </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.state_id.name'/>
+                                            : <span t-esc='o.partner_id.state_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Country: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Country </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.country_id.name'/>
+                                            : <span t-esc='o.partner_id.country_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Phone: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Phone </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.phone'/>
+                                            : <span t-esc='o.partner_id.phone'/>
                                         </div>
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'>
-                                            <p style='text-align: left; font-size: 16px;'><em>Fax: </em></p>
+                                            <p style='text-align: left; font-size: 16px;'>Fax </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.mobile'/>
+                                            : <span t-esc='o.partner_id.mobile'/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Reference and Date Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid #35bdaf">
+                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid rgb(0, 0, 0)">
                                 <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
                                     <thead style="border: 0.5px; background-color: #efefef">
                                         <tr>
@@ -186,7 +187,7 @@
                                 <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
                                     <thead style="border: 0.5px;">
                                         <tr>
-                                            <th style="font-size: 16px; text-align: center; font-weight: bold;">No</th>
+                                            <th style="font-size: 16px; text-align: center; font-weight: bold;">No.</th>
                                             <th style="font-size: 16px; text-align: center; font-weight: bold;">Serial Number</th>
                                             <th style="font-size: 16px; text-align: center; font-weight: bold;">Part Number</th>
                                             <th style="font-size: 16px; text-align: center; font-weight: bold;">Product Name</th>
@@ -222,7 +223,7 @@
                                     <div class="col-6 text-left">
                                         <div class='row'>
                                             <div class='col-3'>
-                                                <p style='text-align: right; font-size: 16px;'>NOTE : </p>
+                                                <p style='font-size: 16px;'>NOTE : </p>
                                             </div>
                                             <div class='col-9' style='font-size: 16px; border: 1px; margin-left: 0.5rem;'>
                                                 <span t-esc="o.note or ''"/>
