@@ -209,7 +209,7 @@
                                             <!-- Product Name -->
                                                 <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_id.name or ''" style="font-size: 15px;"/></td>
                                             <!-- QTY -->
-                                                <td class="text-center" style="font-size: 15px;"><span t-esc="int(line.product_qty) or ''" style="font-size: 15px;"/></td>
+                                                <td class="text-center" style="font-size: 15px;"><span t-esc="int(line.quantity) or ''" style="font-size: 15px;"/></td>
                                             <!-- Unit -->
                                                 <td class="text-center" style="font-size: 15px;"><span t-esc="line.product_uom.name or ''" style="font-size: 15px;"/></td>
                                             </tr>
