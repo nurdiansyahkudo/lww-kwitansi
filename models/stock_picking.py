@@ -18,16 +18,16 @@ class StockPicking(models.Model):
             # Jika perusahaan tidak cocok dengan ketiganya, menggunakan laporan default
             return self.env.ref('lww_kwitansi.action_report_limawira_do').report_action(self)
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            if 'no_do' in vals and vals['no_do']:
-                existing_record = self.env['stock.picking'].search([
-                    ('no_do', '=', vals['no_do'])
-                ], limit=1)
-                if existing_record:
-                    raise ValidationError('DO Sudah Ada!')
-        return super().create(vals_list)
+    # @api.model_create_multi
+    # def create(self, vals_list):
+    #     for vals in vals_list:
+    #         if 'no_do' in vals and vals['no_do']:
+    #             existing_record = self.env['stock.picking'].search([
+    #                 ('no_do', '=', vals['no_do'])
+    #             ], limit=1)
+    #             if existing_record:
+    #                 raise ValidationError('DO Sudah Ada!')
+    #     return super().create(vals_list)
 
     def write(self, vals):
         if 'no_do' in vals and vals['no_do']:
