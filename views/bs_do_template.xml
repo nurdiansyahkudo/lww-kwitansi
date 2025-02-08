@@ -52,7 +52,7 @@
                             <div class="row" style="margin-bottom: 5px; margin-top: 10px;">
                                 <!-- Kepada YTH -->
                                 <div class="col-6 text-left">
-                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px; height: 150px;">
+                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px; height: 180px;">
                                         <thead style="border: 0.5px; background-color: #efefef">
                                             <tr>
                                                 <th style="font-size: 16px;">
@@ -78,7 +78,7 @@
                                 </div>
                                 <!-- REFF PO/SPK CUST -->
                                 <div class="col-6 text-right" style="margin-left: 1rem; ">
-                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px; height: 150px;">
+                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px; height: 180px;">
                                         <thead style="border: 0.5px; background-color: #efefef">
                                             <tr>
                                                 <th style="font-size: 16px; text-align: center;">
