@@ -5,21 +5,26 @@
         <field name="model">stock.picking</field>
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//button[@name='do_print_picking']" position="replace">
-                <!-- Tombol Print DO -->
+            <!-- Hapus tombol lama -->
+            <xpath expr="//button[@name='do_print_picking']" position="replace"/>
+
+            <!-- Tombol Print DO -->
+            <xpath expr="//header" position="inside">
                 <button name="action_print_report" 
                         groups="stock.group_stock_user" 
                         type="object" 
-                        invisible="picking_type_code != 'outgoing' or state != 'assigned'" 
+                        attrs="{'invisible': [('picking_type_code', '!=', 'outgoing'), ('state', '!=', 'assigned')]}" 
                         data-hotkey="o" 
                         class="oe_highlight" 
                         string="Print DO"/>
-                
-                <!-- Tombol Print Receipt -->
+            </xpath>
+
+            <!-- Tombol Print Receipt -->
+            <xpath expr="//header" position="inside">
                 <button name="action_print_receipt_report" 
                         groups="stock.group_stock_user" 
                         type="object" 
-                        invisible="picking_type_code != 'incoming' or state != 'assigned'" 
+                        attrs="{'invisible': [('picking_type_code', '!=', 'incoming'), ('state', '!=', 'assigned')]}" 
                         data-hotkey="r" 
                         class="oe_highlight" 
                         string="Print Receipt"/>
