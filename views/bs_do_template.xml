@@ -62,7 +62,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-left" style="font-size: 15px; min-height: 150px;">
+                                                <td class="text-left" style="font-size: 15px;">
                                                     <div class='row'>
                                                         <p style='text-align: left; margin-left: 10px;'>
                                                             <span t-esc="o.partner_id.street"/> <br/>
@@ -88,13 +88,9 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-left" style="font-size: 15px; min-height: 150px;">
+                                                <td class="text-left" style="font-size: 15px;">
                                                     <p style='text-align: left; margin-left: 10px;'>
-                                                        <span t-esc="o.sale_id.origin or ''"/> <br/>
-                                                        <span/> <br/>
-                                                        <span/> <br/>
-                                                        <span/> <br/>
-                                                        <span/> <br/>
+                                                        <span t-esc="o.sale_id.origin or ''"/>
                                                     </p>
                                                 </td>
                                             </tr>
