@@ -53,7 +53,7 @@
                                 <!-- Kepada YTH -->
                                 <div class="col-6 text-left">
                                     <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
-                                        <thead style="border: 0.5px; background-color: #efefef">
+                                        <thead style="border: 0.5px;">
                                             <tr>
                                                 <th style="font-size: 16px;">
                                                   <p style='text-align: left; margin-left: 10px;'><strong>Kepada Yth. : </strong></p>
@@ -79,7 +79,7 @@
                                 <!-- REFF PO/SPK CUST -->
                                 <div class="col-6 text-right" style="margin-left: 1rem; ">
                                     <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
-                                        <thead style="border: 0.5px; background-color: #efefef">
+                                        <thead style="border: 0.5px;">
                                             <tr>
                                                 <th style="font-size: 16px; text-align: center;">
                                                   <p style='margin-left: 10px;'><strong>Reff. PO/SPK Customer : </strong></p>
