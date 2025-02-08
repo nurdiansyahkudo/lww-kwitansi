@@ -51,7 +51,7 @@
                             <!-- Address Section -->
                             <div class="row" style="margin-bottom: 5px; margin-top: 10px;">
                                 <div class="col-6 text-left">
-                                    <strong style="font-size: 16px;">Kepada Yth. : </strong>
+                                    <!-- <strong style="font-size: 16px;">Kepada Yth. : </strong>
                                     <div class='row'>
                                         <span t-esc='o.partner_id.name'/>
                                     </div>
@@ -66,7 +66,36 @@
                                     </div>
                                     <div class='row'>
                                         <span t-esc='o.partner_id.country_id.name'/>
-                                    </div>
+                                    </div> -->
+                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
+                                        <thead style="border: 0.5px; background-color: #efefef">
+                                            <tr>
+                                                <th style="font-size: 16px; text-align: center;"><strong>Kepada Yth. : </strong></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                            <!-- Kepada Yth -->
+                                                <td class="text-center" style="font-size: 15px;">
+                                                    <div class='row'>
+                                                        <span t-esc='o.partner_id.name'/>
+                                                    </div>
+                                                    <div class='row'>
+                                                        <span t-esc='o.partner_id.street'/>
+                                                    </div>
+                                                    <div class='row'>
+                                                        <span t-esc='o.partner_id.city'/>
+                                                    </div>
+                                                    <div class='row'>
+                                                        <span t-esc='o.partner_id.state_id.name'/>
+                                                    </div>
+                                                    <div class='row'>
+                                                        <span t-esc='o.partner_id.country_id.name'/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="col-6 text-right" style="margin-left: 1rem; ">
                                     <strong style="font-size: 16px;">Reff. PO/SPK Customer : </strong>
