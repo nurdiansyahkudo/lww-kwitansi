@@ -55,12 +55,14 @@
                                     <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
                                         <thead style="border: 0.5px; background-color: #efefef">
                                             <tr>
-                                                <th style="font-size: 16px;">&nbsp;<strong>Kepada Yth. : </strong></th>
+                                                <th style="font-size: 16px;">
+                                                  <p style='text-align: left; margin-left: 10px;'><strong>Kepada Yth. : </strong></p>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                &nbsp;<td class="text-center" style="font-size: 15px;">
+                                                <td class="text-center" style="font-size: 15px;">
                                                     <div class='row'>
                                                         <span t-esc='o.partner_id.name'/>
                                                     </div>
@@ -86,13 +88,15 @@
                                     <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
                                         <thead style="border: 0.5px; background-color: #efefef">
                                             <tr>
-                                                <th style="font-size: 16px;">&nbsp;<strong>Reff. PO/SPK Customer : </strong></th>
+                                                <th style="font-size: 16px;">
+                                                  <p style='text-align: left; margin-left: 10px;'><strong>Reff. PO/SPK Customer : </strong></p>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td class="text-center" style="font-size: 15px;">
-                                                    &nbsp;<span t-esc="o.sale_id.origin or ''" style="font-size: 15px;"/>
+                                                    <span t-esc="o.sale_id.origin or ''" style="font-size: 15px;"/>
                                                 </td>
                                             </tr>
                                         </tbody>
