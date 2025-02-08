@@ -118,7 +118,7 @@
                                             <!-- No -->
                                                 <td class="text-center" style="font-weight: bold;"><span t-esc="counter" style="font-weight: bold; text-align: center;"/></td>
                                             <!-- Nama Barang -->
-                                                <td class="text-center" style="font-size: 15px;">
+                                                <td class="text-left" style="font-size: 15px; margin-left: 10px;">
                                                     <!-- <span t-esc="line.product_id.name or ''" style="font-size: 15px;"/> -->
                                                     <t t-set="lot_names" t-value="', '.join(line.lot_ids.mapped('name')) or ''"/>
                                                     <t t-set="default_code" t-value="line.product_id.default_code or ''"/>
