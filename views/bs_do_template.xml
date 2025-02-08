@@ -28,7 +28,7 @@
                                 </h1>
                                 <div class='row'>
                                     <div class='col-3'>
-                                        <p style='text-align: left; font-size: 16px;'>NO SPB </p>
+                                        <p style='text-align: left; font-size: 16px;'><strong>NO SPB </strong></p>
                                     </div>
                                     <div class='col-9' style='font-size: 16px; border: 1px;'>
                                         : <span t-esc="o.no_do or ''" style="font-size: 15px;"/>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class='row'>
                                     <div class='col-3'>
-                                        <p style='text-align: left; font-size: 16px;'>Tgl Kirim </p>
+                                        <p style='text-align: left; font-size: 16px;'><strong>Tgl Kirim </strong></p>
                                     </div>
                                     <div class='col-9' style='font-size: 16px; border: 1px;'>
                                         : <span t-esc="(o.scheduled_date or o.date_done).strftime('%d-%b-%y') if (o.scheduled_date or o.date_done) else ''" style="font-size: 15px;"/>
