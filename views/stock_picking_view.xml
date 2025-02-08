@@ -13,7 +13,7 @@
                 <button name="action_print_report" 
                         groups="stock.group_stock_user" 
                         type="object" 
-                        invisible="picking_type_code != 'outgoing' or state != 'assigned'" 
+                        invisible="picking_type_code != 'outgoing'" 
                         data-hotkey="o" 
                         class="oe_highlight" 
                         string="Print DO"/>
@@ -24,7 +24,7 @@
                 <button name="action_print_receipt_report" 
                         groups="stock.group_stock_user" 
                         type="object" 
-                        invisible="picking_type_code != 'incoming' or state != 'assigned'" 
+                        invisible="picking_type_code != 'incoming'" 
                         data-hotkey="r" 
                         class="oe_highlight" 
                         string="Print Receipt"/>
