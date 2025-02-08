@@ -13,7 +13,7 @@
             </xpath>
             
             <xpath expr="//field[@name='location_id']" position="after">
-                <field name="no_do" string="DO Number" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')"/>
+                <field name="no_do" string="DO Number" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')" invisible="picking_type_code != 'outgoing'"/>
             </xpath>
         </field>
     </record>
