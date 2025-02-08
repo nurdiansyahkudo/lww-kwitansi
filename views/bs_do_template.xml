@@ -81,8 +81,8 @@
                                     <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
                                         <thead style="border: 0.5px; background-color: #efefef">
                                             <tr>
-                                                <th class="text-center" style="font-size: 16px;">
-                                                  <p style='text-align: left; margin-left: 10px;'><strong>Reff. PO/SPK Customer : </strong></p>
+                                                <th style="font-size: 16px; text-align: center;">
+                                                  <p style='margin-left: 10px;'><strong>Reff. PO/SPK Customer : </strong></p>
                                                 </th>
                                             </tr>
                                         </thead>
