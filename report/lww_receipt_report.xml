@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- LIMAWIRA -->
+        <report
+            id="lww_receipt_report"
+            model="stock.picking"
+            string="Receipt Goods"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.lww_receipt_template"
+            file="lww_kwitansi.lww_receipt_template"
+            print_report_name="'Receipt Goods - %s' % (object.receipt_no)"
+        />
+
+        <!-- BINA SERVICE -->
+        <report
+            id="bs_receipt_report"
+            model="stock.picking"
+            string="Receipt Goods"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.bs_receipt_template"
+            file="lww_kwitansi.bs_receipt_template"
+            print_report_name="'Receipt Goods - %s' % (object.receipt_no)"
+        />
+        
+        <!-- SPARTADUA RIBUJAYA -->
+        <report
+            id="spartadua_receipt_report"
+            model="stock.picking"
+            string="Receipt Goods"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.spartadua_receipt_template"
+            file="lww_kwitansi.spartadua_receipt_template"
+            print_report_name="'Receipt Goods - %s' % (object.receipt_no)"
+        />
+
+        <!-- PAPERFORMAT POTRAIT -->
+        <record id="paperformat_portrait" model="report.paperformat">
+            <field name="name">Potrait Format</field>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+        
+        <!-- PAPERFORMAT LANDSCAPE -->
+        <record id="paperformat_landscape" model="report.paperformat">
+            <field name="name">Landscape Format</field>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- LIMAWIRA -->
+        <record id="action_report_limawira_receipt" model="ir.actions.report">
+            <field name="name">Print Receipt</field>
+            <field name="model">stock.picking</field>
+            <field name="report_name">lww_kwitansi.lww_receipt_template</field>
+            <field name="report_file">lww_kwitansi.lww_receipt_template</field>
+            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_portrait"/>
+        </record>
+
+        <!-- BINA SERVICE -->
+        <record id="action_report_bs_receipt" model="ir.actions.report">
+            <field name="name">Print Receipt Bina Service</field>
+            <field name="model">stock.picking</field>
+            <field name="report_name">lww_kwitansi.bs_receipt_template</field>
+            <field name="report_file">lww_kwitansi.bs_receipt_template</field>
+            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_portrait"/>
+        </record>
+
+        <!-- SPARTADUA RIBUJAYA -->
+        <record id="action_report_spartadua_receipt" model="ir.actions.report">
+            <field name="name">Print Receipt Spartadua</field>
+            <field name="model">stock.picking</field>
+            <field name="report_name">lww_kwitansi.spartadua_receipt_template</field>
+            <field name="report_file">lww_kwitansi.spartadua_receipt_template</field>
+            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_portrait"/>
+        </record>
+    </data>
+</odoo>

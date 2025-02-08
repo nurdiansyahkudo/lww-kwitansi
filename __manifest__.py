@@ -17,10 +17,15 @@
         'views/lww_po_template.xml',
         'views/bs_po_template.xml',
         'views/spartadua_po_template.xml',
+        # RECEIPT GOODS
+        'report/lww_receipt_report.xml',
+        'views/lww_receipt_template.xml',
+        # 'views/bs_receipt_template.xml',
+        # 'views/spartadua_receipt_template.xml',
         # DELIVERY ORDER
         'report/lww_do_report.xml',
         'views/lww_do_template.xml',
-        # 'views/bs_do_template.xml',
+        'views/bs_do_template.xml',
         # 'views/spartadua_do_template.xml',
         # FORM VIEW
         'views/account_payment_view.xml',

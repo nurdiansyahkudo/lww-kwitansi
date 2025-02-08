@@ -6,7 +6,10 @@
         <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
             <xpath expr="//button[@name='do_print_picking']" position="replace">
-                <button name="action_print_report" groups="stock.group_stock_user" type="object" invisible="state != 'assigned'" data-hotkey="o" class="oe_highlight" string="Print DO"/>
+                <button name="action_print_report" groups="stock.group_stock_user" type="object" invisible="state != 'assigned' or picking_type_code != 'outgoing'" data-hotkey="o" class="oe_highlight" string="Print DO"/>
+            </xpath>
+            <xpath expr="//button[@name='action_print_report']" position="after">
+                <button name="action_print_receipt_report" groups="stock.group_stock_user" type="object" invisible="state != 'assigned' or picking_type_code != 'incoming'" data-hotkey="r" class="oe_highlight" string="Print Receipt"/>
             </xpath>
             <xpath expr="//widget[@name='signature']" position="after">
                 <button name="action_print_report" groups="stock.group_stock_user" type="object" invisible="state != 'done'" data-hotkey="o" class="oe_highlight" string="Print DO"/>
