@@ -73,6 +73,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <tr><td></td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -92,6 +93,10 @@
                                                     <p style='text-align: left; margin-left: 10px;'><span t-esc="o.sale_id.origin or ''"/></p>
                                                 </td>
                                             </tr>
+                                            <tr><td></td></tr>
+                                            <tr><td></td></tr>
+                                            <tr><td></td></tr>
+                                            <tr><td></td></tr>
                                         </tbody>
                                     </table>
                                 </div>
