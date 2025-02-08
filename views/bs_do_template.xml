@@ -22,8 +22,8 @@
                             </div>
                         </div>
                         <div class="col-6" style="height: 150px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="text" style="font-size: 30px; text-align: left; padding-top: 50px;">
-                                <h1 style="font-size: 2rem;">
+                            <div class="text" style="font-size: 25px; text-align: left; padding-top: 50px;">
+                                <h1 style="font-size: 1rem;">
                                     <strong>SURAT PENGIRIMAN BARANG</strong>
                                 </h1>
                             </div>
