@@ -124,7 +124,7 @@
                                                     <t t-set="default_code" t-value="line.product_id.default_code or ''"/>
                                                     <t t-set="product_name" t-value="line.product_id.name or ''"/>
                                                     
-                                                    <span t-esc="', '.join(filter(None, [default_code, product_name]))"/></br>
+                                                    <span t-esc="', '.join(filter(None, [default_code, product_name]))"/><br/>
                                                     <span t-esc="', '.join(filter(None, [lot_names]))"/>
                                                 </td>
                                             <!-- QTY -->
