@@ -88,8 +88,8 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-left" style="font-size: 15px;">
-                                                    <p style='text-align: left; margin-left: 10px;'>
+                                                <td class="text-center" style="font-size: 15px;">
+                                                    <p style='margin-left: 10px;'>
                                                         <span t-esc="o.sale_id.origin or ''"/>
                                                     </p>
                                                 </td>
