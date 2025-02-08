@@ -13,10 +13,10 @@
             </xpath>
             
             <xpath expr="//field[@name='location_id']" position="after">
-                <!-- <field name="no_do" string="DO Number" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')" invisible="picking_type_id.code != 'outgoing'"/> -->
-                <t t-if="record.picking_type_id.raw_value == 'outgoing'">
-                    <field name="no_do" string="DO Number" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')"/>
-                </t>
+                <field name="picking_type_code" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='picking_type_code']" position="after">
+                <field name="no_do" string="DO Number" readonly="state not in ('draft', 'waiting', 'confirmed', 'assigned')" invisible="picking_type_code != 'outgoing'"/>
             </xpath>
         </field>
     </record>

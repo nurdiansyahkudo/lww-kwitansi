@@ -5,6 +5,8 @@ from num2words import num2words
 class StockPicking(models.Model):
     _inherit = "stock.picking"
 
+    picking_type_code = fields.Char(related='picking_type_id.code', store=True)
+
     no_do = fields.Char(string='DO Number', store=True, required=True)
 
     def action_print_report(self):
