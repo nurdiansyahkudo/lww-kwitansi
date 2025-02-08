@@ -62,7 +62,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-left" style="font-size: 15px;">
+                                                <td class="text-left" style="font-size: 15px; min-height: 150px;">
                                                     <div class='row'>
                                                         <p style='text-align: left; margin-left: 10px;'>
                                                             <span t-esc="o.partner_id.street"/> <br/>
@@ -73,7 +73,6 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr><td></td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -89,14 +88,10 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-left" style="font-size: 15px;">
+                                                <td class="text-left" style="font-size: 15px; min-height: 150px;">
                                                     <p style='text-align: left; margin-left: 10px;'><span t-esc="o.sale_id.origin or ''"/></p>
                                                 </td>
                                             </tr>
-                                            <tr><td></td></tr>
-                                            <tr><td></td></tr>
-                                            <tr><td></td></tr>
-                                            <tr><td></td></tr>
                                         </tbody>
                                     </table>
                                 </div>
