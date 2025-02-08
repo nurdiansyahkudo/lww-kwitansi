@@ -89,7 +89,13 @@
                                         <tbody>
                                             <tr>
                                                 <td class="text-left" style="font-size: 15px; min-height: 150px;">
-                                                    <p style='text-align: left; margin-left: 10px;'><span t-esc="o.sale_id.origin or ''"/></p>
+                                                    <p style='text-align: left; margin-left: 10px;'>
+                                                        <span t-esc="o.sale_id.origin or ''"/> <br/>
+                                                        <span/> <br/>
+                                                        <span/> <br/>
+                                                        <span/> <br/>
+                                                        <span/> <br/>
+                                                    </p>
                                                 </td>
                                             </tr>
                                         </tbody>
