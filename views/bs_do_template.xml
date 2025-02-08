@@ -78,7 +78,7 @@
                                 </div>
                                 <!-- REFF PO/SPK CUST -->
                                 <div class="col-6 text-right" style="margin-left: 1rem; ">
-                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
+                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px; height: 100px;">
                                         <thead style="border: 0.5px; background-color: #efefef">
                                             <tr>
                                                 <th style="font-size: 16px; text-align: center;">
