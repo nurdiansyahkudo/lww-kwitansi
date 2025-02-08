@@ -65,17 +65,9 @@
                                                 <td class="text-left" style="font-size: 15px;">
                                                     <div class='row'>
                                                         <p style='text-align: left; margin-left: 10px;'><span t-esc='o.partner_id.name'/></p>
-                                                    </div>
-                                                    <div class='row'>
                                                         <p style='text-align: left; margin-left: 10px;'><span t-esc='o.partner_id.street'/></p>
-                                                    </div>
-                                                    <div class='row'>
                                                         <p style='text-align: left; margin-left: 10px;'><span t-esc='o.partner_id.city'/></p>
-                                                    </div>
-                                                    <div class='row'>
                                                         <p style='text-align: left; margin-left: 10px;'><span t-esc='o.partner_id.state_id.name'/></p>
-                                                    </div>
-                                                    <div class='row'>
                                                         <p style='text-align: left; margin-left: 10px;'><span t-esc='o.partner_id.country_id.name'/></p>
                                                     </div>
                                                 </td>
