@@ -135,11 +135,7 @@
                                 <div class="row" style="margin-bottom: 10px; margin-top: 10px;">
                                     <div class="col-6 text-left">
                                         <div class='row'>
-                                            <div class='col-3'>
-                                                <p style='font-size: 16px;'>Barang telah diterima dalam kondisi BAIK dan BENAR </p>
-                                            </div>
-                                            <div class='col-9' style='font-size: 16px; border: 1px; margin-left: 0.5rem;'>
-                                            </div>
+                                            <p style='font-size: 16px;'>Barang telah diterima dalam kondisi BAIK dan BENAR </p>
                                         </div>
                                     </div>
                                 </div>
