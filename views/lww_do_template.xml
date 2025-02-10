@@ -41,10 +41,11 @@
                                             <p style='text-align: left; font-size: 16px;'>Name </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            :   <t t-if="o.partner_id.company_id">
+                                            :  <!-- <t t-if="o.partner_id.company_id">
                                                     <span t-esc="o.partner_id.company_id.name"/>
                                                 </t>
-                                                <t t-else="-"></t>
+                                                <t t-else="-"></t> -->
+                                                <t t-debug="o.partner_id"/>
                                         </div>
                                     </div>
                                     <div class='row'>
