@@ -42,10 +42,10 @@
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
                                             <!-- : <span t-esc='o.partner_id.company_name.name'/> -->
-                                            : <t t-if="o.partner_id.company_name">
-                                                 <span t-esc="o.partner_id.company_name.name"/>
+                                            : <t t-if="o.partner_id.parent_id and o.partner_id.parent_id.company_name">
+                                                 <span t-esc="o.partner_id.parent_id.company_name"/>
                                               </t>
-                                              <t t-else="">-</t>
+                                              <t t-else="-"></t>
                                         </div>
                                     </div>
                                     <div class='row'>
