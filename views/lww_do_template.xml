@@ -45,7 +45,7 @@
                                             : <t t-if="o.partner_id.company_name">
                                                  <span t-esc="o.partner_id.company_name.name"/>
                                               </t>
-                                              <t t-else>-</t>
+                                              <t t-else="">-</t>
                                         </div>
                                     </div>
                                     <div class='row'>
