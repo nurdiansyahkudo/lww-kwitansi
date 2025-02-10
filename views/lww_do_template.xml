@@ -45,7 +45,7 @@
                                                     <span t-esc="o.partner_id.company_id.name"/>
                                                 </t>
                                                 <t t-else="-"></t> -->
-                                                <t t-debug="o.partner_id"/>
+                                                <span t-debug="o.partner_id"/>
                                         </div>
                                     </div>
                                     <div class='row'>
