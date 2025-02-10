@@ -41,11 +41,12 @@
                                             <p style='text-align: left; font-size: 16px;'>Name </p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            :  <!-- <t t-if="o.partner_id.company_id">
-                                                    <span t-esc="o.partner_id.company_id.name"/>
+                                            :   <t t-if="o.partner_id.parent_id">
+                                                    <p>Parent ID exists!</p>
                                                 </t>
-                                                <t t-else="-"></t> -->
-                                                <span t-debug="o.partner_id"/>
+                                                <t t-else="">
+                                                    <p>No Parent ID</p>
+                                                </t>
                                         </div>
                                     </div>
                                     <div class='row'>
