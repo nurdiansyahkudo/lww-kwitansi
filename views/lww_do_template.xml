@@ -57,7 +57,9 @@
                                             :   <t t-if="o.partner_id.parent_id and o.partner_id.parent_id.name">
                                                     <span t-esc="o.partner_id.parent_id.street"/>
                                                 </t>
-                                                <t t-else="-"></t>
+                                                <t t-else="-">
+                                                    <span t-esc='o.partner_id.street'/>
+                                                </t>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -68,7 +70,9 @@
                                             :   <t t-if="o.partner_id.parent_id and o.partner_id.parent_id.name">
                                                     <span t-esc="o.partner_id.parent_id.city"/>
                                                 </t>
-                                                <t t-else="-"></t>
+                                                <t t-else="-">
+                                                    <span t-esc='o.partner_id.city'/>
+                                                </t>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -79,7 +83,9 @@
                                             :   <t t-if="o.partner_id.parent_id and o.partner_id.parent_id.name">
                                                     <span t-esc="o.partner_id.parent_id.state_id.name"/>
                                                 </t>
-                                                <t t-else="-"></t>
+                                                <t t-else="-">
+                                                    <span t-esc='o.partner_id.state_id.name'/>
+                                                </t>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -90,7 +96,9 @@
                                             :   <t t-if="o.partner_id.parent_id and o.partner_id.parent_id.name">
                                                     <span t-esc="o.partner_id.parent_id.country_id.name"/>
                                                 </t>
-                                                <t t-else="-"></t>
+                                                <t t-else="-">
+                                                    <span t-esc='o.partner_id.country_id.name'/>
+                                                </t>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -101,7 +109,9 @@
                                             :   <t t-if="o.partner_id.parent_id and o.partner_id.parent_id.name">
                                                     <span t-esc="o.partner_id.parent_id.phone"/>
                                                 </t>
-                                                <t t-else="-"></t>
+                                                <t t-else="-">
+                                                    <span t-esc='o.partner_id.phone'/>
+                                                </t>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -112,7 +122,9 @@
                                             :   <t t-if="o.partner_id.parent_id and o.partner_id.parent_id.name">
                                                     <span t-esc="o.partner_id.parent_id.mobile"/>
                                                 </t>
-                                                <t t-else="-"></t>
+                                                <t t-else="-">
+                                                    <span t-esc='o.partner_id.mobile'/>
+                                                </t>
                                         </div>
                                     </div>
                                 </div>
