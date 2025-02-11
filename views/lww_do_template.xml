@@ -167,7 +167,8 @@
                                     <tbody>
                                         <tr>
                                         <!-- Our Ref No -->
-                                            <td class="text-center" style="font-size: 15px;"><span t-esc="o.no_do or ''" style="font-size: 15px;"/></td>
+                                            <!-- <td class="text-center" style="font-size: 15px;"><span t-esc="o.no_do or ''" style="font-size: 15px;"/></td> -->
+                                            <span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')" style="font-size: 15px;"/>
                                         <!-- Date -->
                                             <td class="text-center" style="font-size: 15px;">
                                                 <span t-esc="(o.scheduled_date or o.date_done).strftime('%d-%b-%y') if (o.scheduled_date or o.date_done) else ''" style="font-size: 15px;"/>
