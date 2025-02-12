@@ -177,7 +177,7 @@
                                             </td>
                                         <!-- PRJ/PO NO -->
                                             <!-- <td class="text-center" style="font-size: 15px;"><span t-esc="o.origin or ''" style="font-size: 15px;"/></td> -->
-                                            <td class="text-center" style="font-size: 15px;"><span t-esc="o.project_id.name or ''" style="font-size: 15px;"/></td>
+                                            <td class="text-center" style="font-size: 15px;"><span t-esc="o.sale_id.project_id.name or ''" style="font-size: 15px;"/></td>
                                         <!-- SPK/PO CUSTOMER -->
                                             <!-- <td class="text-center" style="font-size: 15px;"><span t-esc="o.origin or ''" style="font-size: 15px;"/></td> -->
                                             <td class="text-center" style="font-size: 15px;"><span t-esc="o.sale_id.origin or ''" style="font-size: 15px;"/></td>
