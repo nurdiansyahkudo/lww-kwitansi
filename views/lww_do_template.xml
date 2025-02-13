@@ -8,10 +8,13 @@
                     <!-- Header Section -->
                     <div class="row" style="border-bottom: 2px solid rgb(0, 0, 0);">
                         <div class="col-6" style="height: 150px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="text" style="font-size: 30px; text-align: left; padding-top: 100px;">
+                            <div class="text" style="font-size: 30px; text-align: left; padding-top: 70px;">
                                 <h1 style="font-size: 2.5rem;">
                                     <strong>DELIVERY ORDER</strong>
                                 </h1>
+                                <p style="font-size: 1.5rem;">
+                                    <span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')" style="font-size: 15px;"/>
+                                </p>
                             </div>
                         </div>
                         <div class="col-6">
@@ -169,7 +172,7 @@
                                         <!-- Our Ref No -->
                                             <!-- <td class="text-center" style="font-size: 15px;"><span t-esc="o.no_do or ''" style="font-size: 15px;"/></td> -->
                                             <td class="text-center" style="font-size: 15px;">
-                                                <span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')" style="font-size: 15px;"/>
+                                                <span t-esc="o.sale_id.name or ''" style="font-size: 15px;"/>
                                             </td>
                                         <!-- Date -->
                                             <td class="text-center" style="font-size: 15px;">
