@@ -249,6 +249,7 @@
                                             <p style="margin-top: 60px;">( ___________________ )</p>
                                         </div>
                                         <div class="col-4 text-center">
+                                            <span t-esc="(o.scheduled_date or o.date_done).strftime('%d-%b-%y') if (o.scheduled_date or o.date_done) else ''" style="font-size: 15px;"/>
                                             <p>APPROVED BY</p>
                                             <p style="margin-top: 60px;">( ___________________ )</p>
                                         </div>
