@@ -247,11 +247,11 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-4 text-center" style="margin-bottom: 5px; margin-top: 50px;">
+                                        <div class="col-4 text-center" style="margin-bottom: 5px;">
                                             <p>RECEIVED BY</p>
                                             <p style="margin-top: 60px;">( ___________________ )</p>
                                         </div>
-                                        <div class="col-4 text-center" style="margin-bottom: 5px; margin-top: 50px;">
+                                        <div class="col-4 text-center" style="margin-bottom: 5px;">
                                             <p>SHIPPER</p>
                                             <p style="margin-top: 60px;">( ___________________ )</p>
                                         </div>
