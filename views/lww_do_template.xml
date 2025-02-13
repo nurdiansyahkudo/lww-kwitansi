@@ -12,9 +12,9 @@
                                 <h1 style="font-size: 2.5rem;">
                                     <strong>DELIVERY ORDER</strong>
                                 </h1>
-                                <p style="font-size: 1.5rem;">
+                                <h2 style="font-size: 1.5rem;">
                                     <span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')" style="font-size: 15px;"/>
-                                </p>
+                                </h2>
                             </div>
                         </div>
                         <div class="col-6">
