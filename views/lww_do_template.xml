@@ -243,7 +243,7 @@
                                         <div class="col-4 text-center"></div>
                                         <div class="col-4 text-center"></div>
                                         <div class="col-4 text-center">
-                                            <span t-esc="(o.scheduled_date or o.date_done).strftime('%d-%b-%y') if (o.scheduled_date or o.date_done) else ''" style="font-size: 15px;"/>
+                                            <span t-esc="(o.scheduled_date or o.date_done).strftime('%d-%b-%Y') if (o.scheduled_date or o.date_done) else ''" style="font-size: 15px;"/>
                                         </div>
                                     </div>
                                     <div class="row">
