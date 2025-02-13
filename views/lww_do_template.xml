@@ -12,15 +12,10 @@
                                 <h1 style="font-size: 2.5rem; padding-top: 55px;">
                                     <strong>DELIVERY ORDER</strong>
                                 </h1>
-                                <h2 style="font-size: 2rem;">
+                                <h1 style="font-size: 2rem;">
                                     <strong><span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')"/></strong>
-                                </h2>
+                                </h1>
                             </div>
-                            <!-- <div class="text" style="font-size: 30px; text-align: left;">
-                                <h2 style="font-size: 2rem;">
-                                    <strong><span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')"/></strong>
-                                </h2>
-                            </div> -->
                         </div>
                         <div class="col-6">
                             <!-- <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" 
