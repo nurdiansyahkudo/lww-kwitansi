@@ -15,7 +15,7 @@
                             </div>
                             <div class="text" style="font-size: 30px; text-align: left;">
                                 <h2 style="font-size: 2rem;">
-                                    <span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')" style="font-size: 15px;"/>
+                                    <strong><span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')"/></strong>
                                 </h2>
                             </div>
                         </div>
