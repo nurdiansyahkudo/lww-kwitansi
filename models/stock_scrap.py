@@ -42,7 +42,7 @@ class StockScrap(models.Model):
         self.ensure_one()
 
         # Debugging: print nilai scrap_qty dan total_available_qty
-        total_available_qty = sum(lot.quantity for lot in self.lot_ids)
+        total_available_qty = sum(lot.quant_ids for lot in self.lot_ids)
 
         # Validasi apakah scrap_qty lebih dari 0
         if float_is_zero(self.scrap_qty, precision_rounding=self.product_uom_id.rounding):
