@@ -31,7 +31,7 @@
         'views/account_payment_view.xml',
         'views/purchase_order_view.xml',
         'views/stock_picking_view.xml',
-        # 'views/stock_scrap_views.xml',
+        'views/stock_scrap_view.xml',
         # 'views/header_template.xml',
     ],
     'installable': True,

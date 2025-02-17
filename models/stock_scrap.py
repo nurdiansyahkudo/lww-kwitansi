@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class StockScrap(models.Model):
     _inherit = "stock.scrap"
 
-    lot_id = fields.Many2one(
+    lot_ids = fields.Many2many(
         'stock.lot', 'Lot/Serial',
         domain="[('product_id', '=', product_id), ('product_qty', '>', 0)]", 
         check_company=True
