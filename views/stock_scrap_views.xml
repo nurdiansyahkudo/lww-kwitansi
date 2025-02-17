@@ -1,0 +1,17 @@
+<odoo>
+    <record id="stock_scrap_form_view_inherit" model="ir.ui.view">
+        <field name="name">stock.scrap.form.inherit</field>
+        <field name="model">stock.scrap</field>
+        <field name="inherit_id" ref="stock.stock_scrap_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lot_id']" position="replace">
+                <field name="scrap_lot_ids">
+                    <tree editable="bottom">
+                        <field name="lot_id"/>
+                        <field name="quantity"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>
