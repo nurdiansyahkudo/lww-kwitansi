@@ -12,7 +12,7 @@
                        readonly="state == 'done'"
                        required="tracking != 'none'"
                        groups="stock.group_production_lot"
-                       domain="[('product_id', '=', product_id), ('quantity', '>', 0)]"
+                       domain="[('product_id', '=', product_id), ('product_qty', '>', 0)]"
                 />
             </xpath>
         </field>
