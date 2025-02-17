@@ -16,3 +16,9 @@ class StockScrap(models.Model):
     _inherit = 'stock.scrap'
 
     scrap_lot_ids = fields.One2many('stock.scrap.lot', 'scrap_id', string='Lot/Serial Numbers')
+    quantity = fields.Float(string="Quantity", compute="_compute_total_quantity", store=True)
+
+    @api.depends('scrap_lot_ids.quantity')
+    def _compute_total_quantity(self):
+        for scrap in self:
+            scrap.quantity = sum(scrap.scrap_lot_ids.mapped('quantity'))
