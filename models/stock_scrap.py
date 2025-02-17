@@ -13,12 +13,12 @@ class StockScrap(models.Model):
         compute='_compute_scrap_qty', default=1.0, readonly=False, store=True
     )
 
-    @api.depends('lot_ids.quantity')  # Mendengar perubahan pada lot_ids
+    @api.depends('lot_ids.product_qty')  # Mendengar perubahan pada lot_ids
     def _compute_scrap_qty(self):
         for scrap in self:
             if scrap.lot_ids:
                 # Hitung total quantity berdasarkan lot yang dipilih
-                total_qty = sum(lot.quantity for lot in scrap.lot_ids)
+                total_qty = sum(lot.product_qty for lot in scrap.lot_ids)
                 scrap.scrap_qty = total_qty
             else:
                 scrap.scrap_qty = 0
@@ -27,7 +27,7 @@ class StockScrap(models.Model):
     def _onchange_lot_ids(self):
         if self.lot_ids:
             # Hitung total quantity berdasarkan lot yang dipilih
-            total_qty = sum(lot.quantity for lot in self.lot_ids)
+            total_qty = sum(lot.product_qty for lot in self.lot_ids)
             self.scrap_qty = total_qty
         else:
             self.scrap_qty = 0
