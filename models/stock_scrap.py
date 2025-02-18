@@ -41,7 +41,7 @@ class StockScrap(models.Model):
     def action_validate(self):
         self.ensure_one()
 
-        # Debugging: Print nilai scrap_qty dan total_available_qty
+        # Debugging: print nilai scrap_qty dan total_available_qty
         total_available_qty = sum(lot.product_qty for lot in self.lot_ids)
 
         # Validasi apakah scrap_qty lebih dari 0
@@ -50,28 +50,26 @@ class StockScrap(models.Model):
 
         # Mengecek apakah kuantitas yang tersedia cukup untuk scrap
         if total_available_qty >= self.scrap_qty:
-            # Pastikan setiap lot memiliki quantity yang benar
-            lot_lines = []
+            # Jika ada beberapa lot, buat beberapa scrap entry
             remaining_qty = self.scrap_qty
-
+            scrap_records = self.env['stock.scrap']
+            
             for lot in self.lot_ids:
                 if remaining_qty <= 0:
-                    break 
+                    break  # Stop if we've assigned all the required quantity
 
                 qty_to_scrap = min(lot.product_qty, remaining_qty)
                 remaining_qty -= qty_to_scrap
 
-                lot_lines.append((0, 0, {
-                    'lot_id': lot.id,
-                    'product_qty': qty_to_scrap,
-                    'product_uom_id': self.product_uom_id.id,
-                }))
+                scrap_record = self.copy({
+                    'scrap_qty': qty_to_scrap,
+                    'lot_id': lot.id,  # Odoo requires explicit lot selection
+                })
+                scrap_records += scrap_record
 
-            if remaining_qty > 0:
-                raise UserError(_("Not enough stock available for scrapping."))
-
-            self.write({'lot_scrap_line_ids': lot_lines})  # Ensure correct lot allocation
-            return self.do_scrap()
+            # Validate each scrap record
+            scrap_records.action_validate()
+            return True
 
         else:
             # Konteks untuk peringatan jika kuantitas tidak mencukupi
@@ -91,4 +89,4 @@ class StockScrap(models.Model):
                 'type': 'ir.actions.act_window',
                 'context': ctx,
                 'target': 'new'
-            }   
+            }
