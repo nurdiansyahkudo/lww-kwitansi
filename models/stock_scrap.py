@@ -38,35 +38,35 @@ class StockScrap(models.Model):
         else:
             self.scrap_qty = 0
 
-    # def action_validate(self):
-    #     self.ensure_one()
+    def action_validate(self):
+        self.ensure_one()
 
-    #     # Debugging: print nilai scrap_qty dan total_available_qty
-    #     total_available_qty = sum(sum(quant.quantity for quant in lot.quant_ids) for lot in self.lot_ids)
+        # Debugging: print nilai scrap_qty dan total_available_qty
+        total_available_qty = sum(lot.quantity for lot in self.lot_ids)
 
-    #     # Validasi apakah scrap_qty lebih dari 0
-    #     if float_is_zero(self.scrap_qty, precision_rounding=self.product_uom_id.rounding):
-    #         raise UserError(_('You can only enter positive quantities.'))
+        # Validasi apakah scrap_qty lebih dari 0
+        if float_is_zero(self.scrap_qty, precision_rounding=self.product_uom_id.rounding):
+            raise UserError(_('You can only enter positive quantities.'))
 
-    #     # Mengecek apakah kuantitas yang tersedia cukup untuk scrap
-    #     if total_available_qty >= self.scrap_qty:
-    #         return self.do_scrap()
-    #     else:
-    #         # Konteks untuk peringatan jika kuantitas tidak mencukupi
-    #         ctx = dict(self.env.context)
-    #         ctx.update({
-    #             'default_product_id': self.product_id.id,
-    #             'default_location_id': self.location_id.id,
-    #             'default_scrap_id': self.id,
-    #             'default_quantity': self.product_uom_id._compute_quantity(self.scrap_qty, self.product_id.uom_id),
-    #             'default_product_uom_name': self.product_id.uom_name
-    #         })
-    #         return {
-    #             'name': _('%(product)s: Insufficient Quantity To Scrap', product=self.product_id.display_name),
-    #             'view_mode': 'form',
-    #             'res_model': 'stock.warn.insufficient.qty.scrap',
-    #             'view_id': self.env.ref('stock.stock_warn_insufficient_qty_scrap_form_view').id,
-    #             'type': 'ir.actions.act_window',
-    #             'context': ctx,
-    #             'target': 'new'
-    #         }
+        # Mengecek apakah kuantitas yang tersedia cukup untuk scrap
+        if total_available_qty >= self.scrap_qty:
+            return self.do_scrap()
+        else:
+            # Konteks untuk peringatan jika kuantitas tidak mencukupi
+            ctx = dict(self.env.context)
+            ctx.update({
+                'default_product_id': self.product_id.id,
+                'default_location_id': self.location_id.id,
+                'default_scrap_id': self.id,
+                'default_quantity': self.product_uom_id._compute_quantity(self.scrap_qty, self.product_id.uom_id),
+                'default_product_uom_name': self.product_id.uom_name
+            })
+            return {
+                'name': _('%(product)s: Insufficient Quantity To Scrap', product=self.product_id.display_name),
+                'view_mode': 'form',
+                'res_model': 'stock.warn.insufficient.qty.scrap',
+                'view_id': self.env.ref('stock.stock_warn_insufficient_qty_scrap_form_view').id,
+                'type': 'ir.actions.act_window',
+                'context': ctx,
+                'target': 'new'
+            }
