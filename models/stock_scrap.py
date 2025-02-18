@@ -5,7 +5,7 @@ from odoo.tools.float_utils import float_is_zero
 class StockScrap(models.Model):
     _inherit = 'stock.scrap'
 
-    lot_ids = fields.Many2many(
+    lot_ids = fields.One2many(
         'stock.lot', string='Lots/Serials',
         domain="[('product_id', '=', product_id), ('product_qty', '>', 0)]",
         check_company=True
@@ -30,4 +30,3 @@ class StockScrap(models.Model):
             self.scrap_qty = sum(lot.product_qty for lot in self.lot_ids)
         else:
             self.scrap_qty = 0
-
