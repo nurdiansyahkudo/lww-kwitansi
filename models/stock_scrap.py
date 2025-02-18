@@ -39,38 +39,40 @@ class StockScrap(models.Model):
             self.scrap_qty = 0
 
     def action_validate(self):
-        # Remove ensure_one() since we might process multiple scrap records
+        # self.ensure_one()
+
+        # Debugging: print nilai scrap_qty dan total_available_qty
         total_available_qty = sum(lot.product_qty for lot in self.lot_ids)
 
+        # Validasi apakah scrap_qty lebih dari 0
         if float_is_zero(self.scrap_qty, precision_rounding=self.product_uom_id.rounding):
             raise UserError(_('You can only enter positive quantities.'))
 
+        # Mengecek apakah kuantitas yang tersedia cukup untuk scrap
         if total_available_qty >= self.scrap_qty:
-            # If multiple lots exist, create multiple scrap records
+            # Jika ada beberapa lot, buat beberapa scrap entry
             remaining_qty = self.scrap_qty
             scrap_records = self.env['stock.scrap']
             
             for lot in self.lot_ids:
                 if remaining_qty <= 0:
-                    break
+                    break  # Stop if we've assigned all the required quantity
 
                 qty_to_scrap = min(lot.product_qty, remaining_qty)
                 remaining_qty -= qty_to_scrap
 
                 scrap_record = self.copy({
                     'scrap_qty': qty_to_scrap,
-                    'lot_id': lot.id,
+                    'lot_id': lot.id,  # Odoo requires explicit lot selection
                 })
                 scrap_records += scrap_record
 
-            # Validate each scrap record separately
-            for scrap in scrap_records:
-                scrap.action_validate()
-
-            return True  # Return success
+            # Validate each scrap record
+            scrap_records.action_validate()
+            return True
 
         else:
-            # Handle insufficient quantity case
+            # Konteks untuk peringatan jika kuantitas tidak mencukupi
             ctx = dict(self.env.context)
             ctx.update({
                 'default_product_id': self.product_id.id,
