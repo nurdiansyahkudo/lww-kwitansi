@@ -39,8 +39,6 @@ class StockScrap(models.Model):
             self.scrap_qty = 0
 
     def action_validate(self):
-        # self.ensure_one()
-
         # Debugging: print nilai scrap_qty dan total_available_qty
         total_available_qty = sum(lot.product_qty for lot in self.lot_ids)
 
