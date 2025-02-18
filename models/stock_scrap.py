@@ -1,44 +1,41 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
-from odoo.tools import float_compare, float_is_zero
+from odoo.tools.float_utils import float_is_zero
 
 class StockScrap(models.Model):
-    _inherit = "stock.scrap"
+    _inherit = 'stock.scrap'
 
     lot_ids = fields.Many2many(
         'stock.lot', string='Lots/Serials',
-        domain="[('product_id', '=', product_id), ('product_qty', '>', 0)]", 
+        domain="[('product_id', '=', product_id), ('product_qty', '>', 0)]",
         check_company=True
     )
-    # lot_id = fields.Many2one(
-    #     'stock.lot', 'Lot/Serial',
-    #     domain="[('product_id', '=', product_id), ('product_qty', '>', 0)]", check_company=True
-    # )
+
     scrap_qty = fields.Float(
         'Quantity', required=True, digits='Product Unit of Measure',
         compute='_compute_scrap_qty', default=1.0, readonly=False, store=True
     )
 
-    @api.depends('lot_ids.product_qty')  # Mendengar perubahan pada lot_ids
+    @api.depends('lot_ids.product_qty')  
     def _compute_scrap_qty(self):
         for scrap in self:
             if scrap.lot_ids:
-                # Hitung total quantity berdasarkan lot yang dipilih
-                total_qty = sum(lot.product_qty for lot in scrap.lot_ids)
-                scrap.scrap_qty = total_qty
+                scrap.scrap_qty = sum(lot.product_qty for lot in scrap.lot_ids)
             else:
                 scrap.scrap_qty = 0
 
-    @api.onchange('lot_ids')  # Menangani perubahan pada lot_ids
+    @api.onchange('lot_ids')  
     def _onchange_lot_ids(self):
         if self.lot_ids:
-            # Hitung total quantity berdasarkan lot yang dipilih
-            total_qty = sum(lot.product_qty for lot in self.lot_ids)
-            self.scrap_qty = total_qty
+            self.scrap_qty = sum(lot.product_qty for lot in self.lot_ids)
         else:
             self.scrap_qty = 0
 
     def action_validate(self):
+        """ Memvalidasi proses scrap untuk beberapa Lot/Serial """
+        if self.env.context.get('skip_scrap_validation'):
+            return True  # Mencegah infinite recursion pada copy()
+
         total_available_qty = sum(lot.product_qty for lot in self.lot_ids)
 
         if float_is_zero(self.scrap_qty, precision_rounding=self.product_uom_id.rounding):
@@ -47,23 +44,24 @@ class StockScrap(models.Model):
         if total_available_qty >= self.scrap_qty:
             remaining_qty = self.scrap_qty
             scrap_records = self.env['stock.scrap']
-            
+
             for lot in self.lot_ids:
                 if remaining_qty <= 0:
-                    break  # Stop if we've assigned all the required quantity
+                    break  
 
                 qty_to_scrap = min(lot.product_qty, remaining_qty)
                 remaining_qty -= qty_to_scrap
 
-                scrap_record = self.copy({
+                scrap_record = self.with_context(skip_scrap_validation=True).copy({
                     'scrap_qty': qty_to_scrap,
                     'lot_id': lot.id,
+                    'lot_ids': [(6, 0, [lot.id])],  # Pastikan hanya satu lot per scrap
                 })
                 scrap_records += scrap_record
 
-            # Validate each scrap record individually to avoid singleton error
+            # Validasi setiap scrap secara terpisah untuk menghindari singleton error
             for scrap in scrap_records:
-                scrap.action_validate()
+                scrap.sudo().with_context(skip_scrap_validation=True).action_validate()
 
             return True
 
