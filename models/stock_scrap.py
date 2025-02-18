@@ -5,7 +5,7 @@ from odoo.tools.float_utils import float_is_zero
 class StockScrap(models.Model):
     _inherit = 'stock.scrap'
 
-    lot_ids = fields.One2many(
+    lot_id = fields.Many2one(
         'stock.lot', string='Lots/Serials',
         domain="[('product_id', '=', product_id), ('product_qty', '>', 0)]",
         check_company=True
@@ -16,17 +16,17 @@ class StockScrap(models.Model):
         compute='_compute_scrap_qty', default=1.0, readonly=False, store=True
     )
 
-    @api.depends('lot_ids.product_qty')  
+    @api.depends('lot_id.product_qty')  
     def _compute_scrap_qty(self):
         for scrap in self:
-            if scrap.lot_ids:
-                scrap.scrap_qty = sum(lot.product_qty for lot in scrap.lot_ids)
+            if scrap.lot_id:
+                scrap.scrap_qty = sum(lot.product_qty for lot in scrap.lot_id)
             else:
                 scrap.scrap_qty = 0
 
-    @api.onchange('lot_ids')  
+    @api.onchange('lot_id')  
     def _onchange_lot_ids(self):
-        if self.lot_ids:
-            self.scrap_qty = sum(lot.product_qty for lot in self.lot_ids)
+        if self.lot_id:
+            self.scrap_qty = sum(lot.product_qty for lot in self.lot_id)
         else:
             self.scrap_qty = 0
