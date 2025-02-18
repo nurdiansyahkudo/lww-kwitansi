@@ -1,32 +1,90 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
-from odoo.tools.float_utils import float_is_zero
+from odoo.tools import float_is_zero, float_compare
 
 class StockScrap(models.Model):
     _inherit = 'stock.scrap'
 
-    lot_id = fields.Many2one(
-        'stock.lot', string='Lot/Serial',
+    lot_ids = fields.Many2many(
+        'stock.lot', string='Lots/Serials',
         domain="[('product_id', '=', product_id), ('product_qty', '>', 0)]",
         check_company=True
     )
 
-    # scrap_qty = fields.Float(
-    #     'Quantity', required=True, digits='Product Unit of Measure',
-    #     compute='_compute_scrap_qty', default=1.0, readonly=False, store=True
-    # )
+    def do_scrap(self):
+        self._check_company()
+        for scrap in self:
+            scrap.name = self.env['ir.sequence'].next_by_code('stock.scrap') or _('New')
+            moves = []
+            for lot in scrap.lot_ids:
+                move = self.env['stock.move'].create(scrap._prepare_move_values(lot))
+                moves.append(move)
+            for move in moves:
+                move.with_context(is_scrap=True)._action_done()
+            scrap.write({'state': 'done'})
+            scrap.date_done = fields.Datetime.now()
+            if scrap.should_replenish:
+                scrap.do_replenish()
+        return True
 
-    # @api.depends('lot_id.product_qty')  
-    # def _compute_scrap_qty(self):
-    #     for scrap in self:
-    #         if scrap.lot_id:
-    #             scrap.scrap_qty = sum(lot.product_qty for lot in scrap.lot_id)
-    #         else:
-    #             scrap.scrap_qty = 0
+    def _prepare_move_values(self, lot):
+        self.ensure_one()
+        return {
+            'name': self.name,
+            'origin': self.origin,
+            'product_id': self.product_id.id,
+            'product_uom_qty': self.scrap_qty,
+            'product_uom': self.product_uom_id.id,
+            'location_id': self.location_id.id,
+            'location_dest_id': self.scrap_location_id.id,
+            'move_line_ids': [(0, 0, {
+                'product_id': self.product_id.id,
+                'lot_id': lot.id,
+                'product_uom_qty': self.scrap_qty,
+                'product_uom_id': self.product_uom_id.id,
+                'qty_done': self.scrap_qty,
+                'location_id': self.location_id.id,
+                'location_dest_id': self.scrap_location_id.id,
+            })],
+        }
 
-    # @api.onchange('lot_id')  
-    # def _onchange_lot_ids(self):
-    #     if self.lot_id:
-    #         self.scrap_qty = sum(lot.product_qty for lot in self.lot_id)
-    #     else:
-    #         self.scrap_qty = 0
+    def check_available_qty(self):
+        if not self._should_check_available_qty():
+            return True
+
+        precision = self.env['decimal.precision'].precision_get('Product Unit of Measure')
+        available_qty = sum(self.with_context(
+            location=self.location_id.id,
+            lot_id=lot.id,
+            package_id=self.package_id.id,
+            owner_id=self.owner_id.id,
+            strict=True,
+        ).product_id.qty_available for lot in self.lot_ids)
+        scrap_qty = self.product_uom_id._compute_quantity(self.scrap_qty, self.product_id.uom_id)
+        return float_compare(available_qty, scrap_qty, precision_digits=precision) >= 0
+
+    def action_validate(self):
+        self.ensure_one()
+        if float_is_zero(self.scrap_qty,
+                         precision_rounding=self.product_uom_id.rounding):
+            raise UserError(_('You can only enter positive quantities.'))
+        if self.check_available_qty():
+            return self.do_scrap()
+        else:
+            ctx = dict(self.env.context)
+            ctx.update({
+                'default_product_id': self.product_id.id,
+                'default_location_id': self.location_id.id,
+                'default_scrap_id': self.id,
+                'default_quantity': self.product_uom_id._compute_quantity(self.scrap_qty, self.product_id.uom_id),
+                'default_product_uom_name': self.product_id.uom_name
+            })
+            return {
+                'name': _('%(product)s: Insufficient Quantity To Scrap', product=self.product_id.display_name),
+                'view_mode': 'form',
+                'res_model': 'stock.warn.insufficient.qty.scrap',
+                'view_id': self.env.ref('stock.stock_warn_insufficient_qty_scrap_form_view').id,
+                'type': 'ir.actions.act_window',
+                'context': ctx,
+                'target': 'new'
+            }
