@@ -11,6 +11,13 @@ class StockScrap(models.Model):
         check_company=True
     )
 
+    @api.onchange('lot_ids')
+    def _onchange_lot_ids(self):
+        total_qty = 0
+        for lot in self.lot_ids:
+            total_qty += lot.product_qty
+        self.scrap_qty = total_qty
+
     def do_scrap(self):
         self._check_company()
         for scrap in self:
@@ -33,16 +40,16 @@ class StockScrap(models.Model):
             'name': self.name,
             'origin': self.origin,
             'product_id': self.product_id.id,
-            'product_uom_qty': self.scrap_qty,
+            'product_uom_qty': lot.product_qty,
             'product_uom': self.product_uom_id.id,
             'location_id': self.location_id.id,
             'location_dest_id': self.scrap_location_id.id,
             'move_line_ids': [(0, 0, {
                 'product_id': self.product_id.id,
                 'lot_id': lot.id,
-                'product_uom_qty': self.scrap_qty,
+                'product_uom_qty': lot.product_qty,
                 'product_uom_id': self.product_uom_id.id,
-                'qty_done': self.scrap_qty,
+                'qty_done': lot.product_qty,
                 'location_id': self.location_id.id,
                 'location_dest_id': self.scrap_location_id.id,
             })],
