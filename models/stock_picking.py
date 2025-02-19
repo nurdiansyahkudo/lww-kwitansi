@@ -47,7 +47,7 @@ class StockPicking(models.Model):
                     ('id', '!=', record.id)
                 ], limit=1)
                 if existing_receipt:
-                    raise ValidationError('Receipt Number Sudah Ada!')
+                    raise ValidationError('RG Sudah Ada!')
                 
         return super().write(vals)
     
@@ -55,4 +55,4 @@ class StockPicking(models.Model):
         return 'Delivery Order - %s' % (self.no_do)
     
     def get_receipt_report_name(self):
-        return 'Receipt - %s' % (self.receipt_no)
+        return 'Receipt Goods - %s' % (self.receipt_no)
