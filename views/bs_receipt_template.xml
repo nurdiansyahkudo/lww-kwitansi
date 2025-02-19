@@ -31,7 +31,7 @@
                                         <p style='text-align: left; font-size: 16px;'><strong>NO BTB </strong></p>
                                     </div>
                                     <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                        : <span t-esc="o.receipt_no or ''" style="font-size: 15px;"/>
+                                        : <span t-esc="(o.name + ' ' + o.receipt_no) if o.name and o.receipt_no else (o.name or o.receipt_no or '')" style="font-size: 15px;"/>
                                     </div>
                                 </div>
                                 <div class='row'>

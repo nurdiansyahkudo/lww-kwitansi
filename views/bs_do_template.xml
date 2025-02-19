@@ -31,7 +31,7 @@
                                         <p style='text-align: left; font-size: 16px;'><strong>NO SPB </strong></p>
                                     </div>
                                     <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                        : <span t-esc="o.no_do or ''" style="font-size: 15px;"/>
+                                        : <span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')" style="font-size: 15px;"/>
                                     </div>
                                 </div>
                                 <div class='row'>
