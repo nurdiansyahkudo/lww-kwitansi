@@ -20,7 +20,7 @@
         # RECEIPT GOODS
         'report/lww_receipt_report.xml',
         'views/lww_receipt_template.xml',
-        # 'views/bs_receipt_template.xml',
+        'views/bs_receipt_template.xml',
         # 'views/spartadua_receipt_template.xml',
         # DELIVERY ORDER
         'report/lww_do_report.xml',
