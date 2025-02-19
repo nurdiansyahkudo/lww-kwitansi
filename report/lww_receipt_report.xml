@@ -68,7 +68,7 @@
             <field name="model">stock.picking</field>
             <field name="report_name">lww_kwitansi.lww_receipt_template</field>
             <field name="report_file">lww_kwitansi.lww_receipt_template</field>
-            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="print_report_name">(object.get_receipt_report_name())</field>
             <field name="attachment"/>
             <field name="report_type">qweb-pdf</field>
             <field name="binding_model_id" ref="stock.model_stock_picking"/>
@@ -82,7 +82,7 @@
             <field name="model">stock.picking</field>
             <field name="report_name">lww_kwitansi.bs_receipt_template</field>
             <field name="report_file">lww_kwitansi.bs_receipt_template</field>
-            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="print_report_name">(object.get_receipt_report_name())</field>
             <field name="attachment"/>
             <field name="report_type">qweb-pdf</field>
             <field name="binding_model_id" ref="stock.model_stock_picking"/>
@@ -96,7 +96,7 @@
             <field name="model">stock.picking</field>
             <field name="report_name">lww_kwitansi.spartadua_receipt_template</field>
             <field name="report_file">lww_kwitansi.spartadua_receipt_template</field>
-            <field name="print_report_name">(object.get_print_report_name())</field>
+            <field name="print_report_name">(object.get_receipt_report_name())</field>
             <field name="attachment"/>
             <field name="report_type">qweb-pdf</field>
             <field name="binding_model_id" ref="stock.model_stock_picking"/>
