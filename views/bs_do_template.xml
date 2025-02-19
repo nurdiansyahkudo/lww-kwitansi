@@ -65,6 +65,7 @@
                                                 <td class="text-left" style="font-size: 15px;">
                                                     <div class='row'>
                                                         <p style='text-align: left; margin-left: 10px;'>
+                                                            <span t-esc="o.partner_id.name"/> <br/>
                                                             <span t-esc="o.partner_id.street"/> <br/>
                                                             <span t-esc="o.partner_id.city"/> <br/> 
                                                             <span t-esc="o.partner_id.state_id.name"/> <br/> 
