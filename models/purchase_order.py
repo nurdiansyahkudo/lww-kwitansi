@@ -16,7 +16,7 @@ class PurchaseOrder(models.Model):
     @api.model
     def _get_next_sequence(self):
         """ Generate the next Sequence when click New """
-        return self.env['ir.sequence'].next_by_code('purchase.order') or 'New'
+        return self.env['ir.sequence'].next_by_code('purchase.order') if self.name in [False, 'New'] else self.name
 
     def action_print_report(self):
         company = self.env['res.company'].browse(self.env.company.id)
@@ -32,6 +32,9 @@ class PurchaseOrder(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
+            if not vals.get('name') or vals.get('name') == 'New':
+                vals['name'] = self.env['ir.sequence'].next_by_code('purchase.order')
+
             if 'no_po' in vals and vals['no_po']:
                 existing_record = self.env['purchase.order'].search([
                     ('no_po', '=', vals['no_po'])
@@ -48,7 +51,7 @@ class PurchaseOrder(models.Model):
                     ('id', '!=', record.id)
                 ], limit=1)
                 if existing_record:
-                    raise ValidationError('Kwitansi already exist!')
+                    raise ValidationError('PO already exist!')
         return super().write(vals)
     
     def get_print_report_name(self):
