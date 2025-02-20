@@ -17,38 +17,6 @@ class PurchaseOrder(models.Model):
     def _get_next_sequence(self):
         """ Generate the next Sequence when click New """
         return self.env['ir.sequence'].next_by_code('purchase.order') or 'New'
-    
-    @api.onchange('name')
-    def _onchange_discard_check(self):
-        """Detect discard action and reset sequence if needed"""
-        for order in self:
-            if order.name and order.name != 'New' and not order.id:
-                self._reset_sequence_number(order.name)
-
-    def action_cancel(self):
-        """Reset sequence when order is canceled"""
-        for order in self:
-            if order.name and order.name != 'New':
-                self._reset_sequence_number(order.name)
-        return super(PurchaseOrder, self).action_cancel()
-
-    def unlink(self):
-        """Reset sequence when order is deleted"""
-        for order in self:
-            if order.name and order.name != 'New':
-                self._reset_sequence_number(order.name)
-        return super(PurchaseOrder, self).unlink()
-
-    def _reset_sequence_number(self, sequence_name):
-        """Return sequence number to pool"""
-        sequence = self.env['ir.sequence'].search([('code', '=', 'purchase.order')], limit=1)
-        if sequence and sequence.number_next_actual > 1:
-            try:
-                number = int(sequence_name.split('/')[-1])
-                if number + 1 == sequence.number_next_actual:
-                    sequence.write({'number_next_actual': number})
-            except ValueError:
-                pass
 
     def action_print_report(self):
         company = self.env['res.company'].browse(self.env.company.id)
