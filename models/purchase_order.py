@@ -32,9 +32,6 @@ class PurchaseOrder(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if not vals.get('name') or vals.get('name') == 'New':
-                vals['name'] = self.env['ir.sequence'].next_by_code('purchase.order')
-
             if 'no_po' in vals and vals['no_po']:
                 existing_record = self.env['purchase.order'].search([
                     ('no_po', '=', vals['no_po'])
