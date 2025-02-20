@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Template for Kwitansi -->
+        <!-- Template for Delivery Order -->
         <template id="bs_do_template">
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">

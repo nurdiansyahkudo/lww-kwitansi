@@ -5,7 +5,18 @@ from num2words import num2words
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
+    name = fields.Char('Order Reference', 
+        required=True, 
+        index='trigram', 
+        copy=False, 
+        default=lambda self: self._get_next_sequence()
+    )
     no_po = fields.Char(string='Order Number', store=True, required=True)
+
+    @api.model
+    def _get_next_sequence(self):
+        """ Generate the next Sequence when click New """
+        return self.env['ir.sequence'].next_by_code('purchase.order') or 'New' 
 
     def action_print_report(self):
         company = self.env['res.company'].browse(self.env.company.id)
