@@ -18,7 +18,7 @@ class PurchaseOrder(models.Model):
         """ Generate the next Sequence when click New """
         return self.env['ir.sequence'].next_by_code('purchase.order') or 'New'
     
-     @api.onchange('name')
+    @api.onchange('name')
     def _onchange_discard_check(self):
         """Detect discard action and reset sequence if needed"""
         for order in self:
