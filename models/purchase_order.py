@@ -16,7 +16,7 @@ class PurchaseOrder(models.Model):
     @api.model
     def _get_next_sequence(self):
         """ Generate the next Sequence when click New """
-        return self.env['ir.sequence'].next_by_code('purchase.order') if self.name in [False, 'New'] else self.name
+        return self.env['ir.sequence'].next_by_code('purchase.order') or 'New'
 
     def action_print_report(self):
         company = self.env['res.company'].browse(self.env.company.id)
