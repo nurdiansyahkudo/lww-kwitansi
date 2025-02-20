@@ -9,7 +9,7 @@ class PurchaseOrder(models.Model):
         required=True,
         index='trigram',
         copy=False,
-        default=lambda self: self._default_get_name()
+        default=lambda self: self.env['ir.sequence'].next_by_code('purchase.order') or '/'
     )
     no_po = fields.Char(string='Order Number', store=True, required=True)
 
@@ -23,21 +23,23 @@ class PurchaseOrder(models.Model):
         else:
             return self.env.ref('lww_kwitansi.action_report_limawira_po').report_action(self)
 
-    @api.model
-    def _default_get_name(self):
-        """ Generate sequence only when form is opened (not in create) """
-        return self.env['ir.sequence'].next_by_code('purchase.order') or '/'
-
     @api.model_create_multi
     def create(self, vals_list):
         orders = self.browse()
         partner_vals_list = []
         for vals in vals_list:
-            # Jika name masih kosong (tidak diisi di form), pastikan tetap pakai sequence
-            if not vals.get('name'):
-                vals['name'] = self.env['ir.sequence'].next_by_code('purchase.order') or '/'
+            company_id = vals.get('company_id', self.default_get(['company_id'])['company_id'])
+            self_comp = self.with_company(company_id)
 
-            # Cek jika no_po sudah ada
+            # **Perbaikan utama di sini**
+            # Cek jika 'name' sudah berupa sequence, jika belum maka buat baru
+            if not vals.get('name') or vals.get('name') == 'New':
+                seq_date = vals.get('date_order')
+                if seq_date:
+                    seq_date = fields.Datetime.context_timestamp(self, fields.Datetime.to_datetime(seq_date))
+                vals['name'] = self_comp.env['ir.sequence'].next_by_code('purchase.order', sequence_date=seq_date) or '/'
+
+            # Cek apakah 'no_po' sudah ada sebelumnya
             if 'no_po' in vals and vals['no_po']:
                 existing_record = self.env['purchase.order'].search([
                     ('no_po', '=', vals['no_po'])
@@ -47,7 +49,7 @@ class PurchaseOrder(models.Model):
 
             vals, partner_vals = self._write_partner_values(vals)
             partner_vals_list.append(partner_vals)
-            orders |= super(PurchaseOrder, self).create(vals)
+            orders |= super(PurchaseOrder, self_comp).create(vals)
 
         for order, partner_vals in zip(orders, partner_vals_list):
             if partner_vals:
