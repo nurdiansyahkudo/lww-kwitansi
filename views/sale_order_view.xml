@@ -21,7 +21,7 @@
             </xpath>
             
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="no_so" string="Order Number" readonly="state not in ('draft', 'sent', 'to approve', 'purchase')"/>
+                <field name="no_so" string="Order Number"/>
             </xpath>
         </field>
     </record>
