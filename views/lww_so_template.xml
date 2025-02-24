@@ -171,7 +171,7 @@
                                             </td>
                                         <!-- Date -->
                                             <td class="text-center" style="font-size: 15px;">
-                                                <span t-esc="o.date_order.strtime('%d-%b-%y')" style="font-size: 15px;"/>
+                                                <span t-esc="o.date_order.strftime('%d-%b-%y')" style="font-size: 15px;"/>
                                             </td>
                                         <!-- Ship Via (Link to Receipt on carrier_id.name) -->
                                             <td class="text-center" style="font-size: 15px;"><span t-esc="o.incoterm.name or ''" style="font-size: 15px;"/></td>
