@@ -9,6 +9,7 @@
                     <div class="row" style="border-bottom: 2px solid rgb(62, 54, 180);">
                         <div class="col-6" style="height: 130px; display: flex; flex-direction: column; justify-content: center;">
                             <div class="text" style="font-size: 30px; text-align: left;">
+                                <br/>
                                 <h1 style="font-size: 2rem; padding-top: 70px;">
                                     <strong>DELIVERY ORDER</strong>
                                 </h1>
