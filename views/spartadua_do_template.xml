@@ -62,7 +62,7 @@
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'></div>
-                                        <div class='col-9' style='font-size: 16px; border: 1px; margin-left: 4px;'>
+                                        <div class='col-9' style='font-size: 16px; border: 1px; margin-left: 5px;'>
                                             <span t-esc="o.partner_id.street"/> <br/>
                                             <span t-esc="o.partner_id.city"/> - <span t-esc="o.partner_id.zip"/>, 
                                             <span t-esc="o.partner_id.country_id.name"/><br/>
