@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-6">
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" 
-                            style="max-width: 350px; height: auto;" />
+                            style="max-width: 100px; height: auto;" />
                             <div style="font-size: 12px; line-height: 1.5; text-align: right;">
                                 <p style="font-weight: bold; margin-bottom: 2px; font-size: 30px; color: blue;"><em>PT. SpartaDua RibuJaya</em></p>
                                 <p>
