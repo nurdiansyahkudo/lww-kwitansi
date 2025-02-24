@@ -7,7 +7,7 @@
                 <t t-foreach="docs" t-as="o">
                     <!-- Header Section -->
                     <div class="row" style="border-bottom: 2px solid rgb(0, 0, 0);">
-                        <div class="col-6" style="height: 120px; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="col-6" style="height: 130px; display: flex; flex-direction: column; justify-content: center;">
                             <div class="text" style="font-size: 30px; text-align: left;">
                                 <br/>
                                 <h1 style="font-size: 2rem; padding-top: 70px;">
