@@ -44,7 +44,6 @@
                             <!-- Address Section -->
                             <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid rgb(0, 0, 0)">
                                 <div class="col-6 text-left">
-                                    <strong style="font-size: 16px;">Sold To: </strong>
                                     <div class='row'>
                                         <div class='col-3'>
                                             <strong><p style='text-align: left; font-size: 16px;'>Customer </p></strong>
@@ -63,7 +62,7 @@
                                     </div>
                                     <div class='row'>
                                         <div class='col-3'></div>
-                                        <div class='col-9' style='font-size: 16px; border: 1px;'>
+                                        <div class='col-9' style='font-size: 16px; border: 1px; margin-left: 2px;'>
                                             <span t-esc="o.partner_id.street"/> <br/>
                                             <span t-esc="o.partner_id.city"/> - <span t-esc="o.partner_id.zip"/>, 
                                             <span t-esc="o.partner_id.country_id.name"/><br/>
@@ -71,8 +70,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 text-right" style="margin-left: 1rem; ">
-                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
+                                <div class="col-6 text-right" style="margin-left: 1rem; margin-bottom: 5px;">
+                                    <table class="table table-sm" style="margin-bottom: 3px; border: 0.5px; padding: auto;">
                                         <thead style="border: 0.5px;">
                                             <tr>
                                                 <th style="font-size: 16px; text-align: center;">
@@ -91,7 +90,7 @@
                                         </tbody>
                                     </table>
                                     <br/>
-                                    <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
+                                    <table class="table table-sm" style="margin-bottom: 3px; border: 0.5px; padding: auto;">
                                         <thead style="border: 0.5px;">
                                             <tr>
                                                 <th style="font-size: 16px; text-align: center;">
