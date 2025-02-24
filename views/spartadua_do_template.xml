@@ -13,7 +13,7 @@
                                 <h1 style="font-size: 2rem; padding-top: 70px;">
                                     <strong>DELIVERY ORDER</strong>
                                 </h1>
-                                <h1 style="font-size: 1.5rem;">
+                                <h1 style="font-size: 1.5rem; margin-bottom: 2px;">
                                   No. : <strong><span t-esc="(o.name + ' ' + o.no_do) if o.name and o.no_do else (o.name or o.no_do or '')"/></strong>
                                 </h1>
                             </div>
