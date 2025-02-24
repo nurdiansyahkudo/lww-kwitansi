@@ -16,7 +16,7 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//button[@name='button_done']" position="after">
+            <xpath expr="//button[@name='action_confirm']" position="after">
                 <button name="action_print_report" type="object" string="Print SO" class="oe_highlight"/>
             </xpath>
             
