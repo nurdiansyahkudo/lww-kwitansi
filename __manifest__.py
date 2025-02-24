@@ -26,7 +26,7 @@
         'report/lww_do_report.xml',
         'views/lww_do_template.xml',
         'views/bs_do_template.xml',
-        # 'views/spartadua_do_template.xml',
+        'views/spartadua_do_template.xml',
         # FORM VIEW
         'views/account_payment_view.xml',
         'views/purchase_order_view.xml',
