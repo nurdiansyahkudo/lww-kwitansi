@@ -9,7 +9,7 @@
                     <div class="row" style="border-bottom: 2px solid rgb(0, 0, 0);">
                         <div class="col-6" style="height: 150px; display: flex; flex-direction: column; justify-content: center;">
                             <div class="text" style="font-size: 30px; text-align: left;">
-                                <h1 style="font-size: 2rem; padding-top: 60px;">
+                                <h1 style="font-size: 2rem; padding-top: 70px;">
                                     <strong>DELIVERY ORDER</strong>
                                 </h1>
                                 <h1 style="font-size: 1.5rem;">
@@ -32,7 +32,9 @@
                                     Fax: <span t-esc="o.company_id.mobile"/>
                                 </p>
                                 <br/>
-                                <span t-esc="(o.scheduled_date or o.date_done).strftime('%d-%b-%Y') if (o.scheduled_date or o.date_done) else ''" style="font-size: 15px;"/>
+                                <strong>
+                                    <span t-esc="(o.scheduled_date or o.date_done).strftime('%d-%b-%Y') if (o.scheduled_date or o.date_done) else ''" style="font-size: 1.5rem;"/>
+                                </strong>
                             </div>
                         </div>
                     </div>
