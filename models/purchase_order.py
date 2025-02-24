@@ -4,13 +4,6 @@ from odoo.exceptions import ValidationError
 class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
-    name = fields.Char(
-        'Order Reference',
-        required=True,
-        index='trigram',
-        copy=False,
-        default=lambda self: self.env['ir.sequence'].next_by_code('purchase.order') or '/'
-    )
     no_po = fields.Char(string='Order Number', store=True, required=True)
 
     def action_print_report(self):
