@@ -10,11 +10,11 @@ class SaleOrder(models.Model):
         company = self.env['res.company'].browse(self.env.company.id)
         
         if company.name == 'PT. BINA SERVICE':
-            return self.env.ref('lww_kwitansi.action_report_bs_po').report_action(self)
+            return self.env.ref('lww_kwitansi.action_report_bs_so').report_action(self)
         elif company.name == 'PT. SPARTADUA RIBUJAYA':
-            return self.env.ref('lww_kwitansi.action_report_spartadua_po').report_action(self)
+            return self.env.ref('lww_kwitansi.action_report_spartadua_so').report_action(self)
         else:
-            return self.env.ref('lww_kwitansi.action_report_limawira_po').report_action(self)
+            return self.env.ref('lww_kwitansi.action_report_limawira_so').report_action(self)
 
     @api.model_create_multi
     def create(self, vals):
