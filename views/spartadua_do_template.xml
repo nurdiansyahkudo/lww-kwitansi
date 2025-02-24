@@ -17,9 +17,11 @@
                                 </h1>
                             </div>
                         </div>
-                        <div class="col-6" style="display: flex; align-items: center; justify-content: space-between;">
+                        <div class="col-1" style="display: flex; align-items: center; justify-content: space-between;">
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" 
-                                style="max-width: 90px; height: auto; margin-right: 10px;" />
+                                style="max-width: 100px; height: auto; margin-right: 10px;" />
+                        </div>
+                        <div class="col-5" style="display: flex; align-items: center; justify-content: space-between;">
                             <div style="font-size: 12px; line-height: 1.5; text-align: right; flex: 1;">
                                 <p style="font-weight: bold; margin-bottom: 2px; font-size: 30px; color: blue;"><em>PT. SpartaDua RibuJaya</em></p>
                                 <p>
