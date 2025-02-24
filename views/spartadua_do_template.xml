@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 text-right" style="margin-left: 1rem; margin-bottom: 5px;">
-                                    <table class="table table-sm" style="margin-bottom: 3px; border: 0.5px; padding: auto;">
+                                    <table class="table table-sm" style="margin-bottom: 3px; border: 0.5px; padding: auto; border-color: rgb(62, 54, 180);">
                                         <thead style="border: 0.5px;">
                                             <tr>
                                                 <th style="font-size: 16px; text-align: center;">
@@ -91,7 +91,7 @@
                                         </tbody>
                                     </table>
                                     <br/>
-                                    <table class="table table-sm" style="margin-bottom: 3px; border: 0.5px; padding: auto;">
+                                    <table class="table table-sm" style="margin-bottom: 3px; border: 0.5px; padding: auto; border-color: rgb(62, 54, 180);">
                                         <thead style="border: 0.5px;">
                                             <tr>
                                                 <th style="font-size: 16px; text-align: center;">
