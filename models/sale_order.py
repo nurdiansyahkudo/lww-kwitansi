@@ -1,17 +1,10 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-class PurchaseOrder(models.Model):
-    _inherit = "purchase.order"
+class SaleOrder(models.Model):
+    _inherit = "sale.order"
 
-    name = fields.Char(
-        'Order Reference',
-        required=True,
-        index='trigram',
-        copy=False,
-        default=lambda self: self.env['ir.sequence'].next_by_code('purchase.order') or '/'
-    )
-    no_po = fields.Char(string='Order Number', store=True, required=True)
+    no_so = fields.Char(string='Sales Order Number', store=True, required=True)
 
     def action_print_report(self):
         company = self.env['res.company'].browse(self.env.company.id)
@@ -25,26 +18,26 @@ class PurchaseOrder(models.Model):
 
     @api.model_create_multi
     def create(self, vals):
-        if 'no_po' in vals and vals['no_po']:
+        if 'no_so' in vals and vals['no_so']:
             for record in self:
-                existing_record = self.env['purchase.order'].search([
-                    ('no_po', '=', vals['no_po']),
+                existing_record = self.env['sale.order'].search([
+                    ('no_so', '=', vals['no_so']),
                     ('id', '!=', record.id)
                 ], limit=1)
                 if existing_record:
-                    raise ValidationError('PO already exist!')
+                    raise ValidationError('SO already exist!')
         return super().write(vals)
 
     def write(self, vals):
-        if 'no_po' in vals and vals['no_po']:
+        if 'no_so' in vals and vals['no_so']:
             for record in self:
-                existing_record = self.env['purchase.order'].search([
-                    ('no_po', '=', vals['no_po']),
+                existing_record = self.env['sale.order'].search([
+                    ('no_so', '=', vals['no_so']),
                     ('id', '!=', record.id)
                 ], limit=1)
                 if existing_record:
-                    raise ValidationError('PO already exist!')
+                    raise ValidationError('SO already exist!')
         return super().write(vals)
     
-    def get_print_report_name(self):
-        return 'Purchase Order - %s' % (self.no_po)
+    def get_sales_report_name(self):
+        return 'Sales Order - %s' % (self.no_so)

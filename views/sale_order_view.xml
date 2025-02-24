@@ -1,0 +1,28 @@
+<odoo>
+    <!-- SO Tree -->
+    <record id="view_quotation_tree_with_onboarding_inherit" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="no_so" string="Order Number" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- SO Form -->
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_done']" position="after">
+                <button name="action_print_report" type="object" string="Print SO" class="oe_highlight"/>
+            </xpath>
+            
+            <xpath expr="//field[@name='currency_id']" position="after">
+                <field name="no_so" string="Order Number" readonly="state not in ('draft', 'sent', 'to approve', 'purchase')"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- LIMAWIRA -->
+        <report
+            id="lww_sales_report"
+            model="sale.order"
+            string="Sales Order"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.lww_so_template"
+            file="lww_kwitansi.lww_so_template"
+            print_report_name="'Sales Order - %s' % (object.no_so)"
+        />
+
+        <!-- BINA SERVICE -->
+        <report
+            id="bs_sales_report"
+            model="sale.order"
+            string="Sales Order"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.bs_so_template"
+            file="lww_kwitansi.bs_so_template"
+            print_report_name="'Sales Order - %s' % (object.no_so)"
+        />
+        
+        <!-- SPARTADUA RIBUJAYA -->
+        <report
+            id="spartadua_sales_report"
+            model="sale.order"
+            string="Sales Order"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.spartadua_so_template"
+            file="lww_kwitansi.spartadua_so_template"
+            print_report_name="'Sales Order - %s' % (object.no_so)"
+        />
+
+        <!-- PAPERFORMAT POTRAIT -->
+        <record id="paperformat_portrait" model="report.paperformat">
+            <field name="name">Potrait Format</field>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+        
+        <!-- PAPERFORMAT LANDSCAPE -->
+        <record id="paperformat_landscape" model="report.paperformat">
+            <field name="name">Landscape Format</field>
+            <field name="format">A4</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">10</field>
+            <field name="margin_right">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- LIMAWIRA -->
+        <record id="action_report_limawira_so" model="ir.actions.report">
+            <field name="name">Print PO</field>
+            <field name="model">sale.order</field>
+            <field name="report_name">lww_kwitansi.lww_so_template</field>
+            <field name="report_file">lww_kwitansi.lww_so_template</field>
+            <field name="print_report_name">(object.get_sales_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_portrait"/>
+        </record>
+
+        <!-- BINA SERVICE -->
+        <record id="action_report_bs_so" model="ir.actions.report">
+            <field name="name">Print PO Bina Service</field>
+            <field name="model">sale.order</field>
+            <field name="report_name">lww_kwitansi.bs_so_template</field>
+            <field name="report_file">lww_kwitansi.bs_so_template</field>
+            <field name="print_report_name">(object.get_sales_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_portrait"/>
+        </record>
+
+        <!-- SPARTADUA RIBUJAYA -->
+        <record id="action_report_spartadua_so" model="ir.actions.report">
+            <field name="name">Print PO Spartadua</field>
+            <field name="model">sale.order</field>
+            <field name="report_name">lww_kwitansi.spartadua_so_template</field>
+            <field name="report_file">lww_kwitansi.spartadua_so_template</field>
+            <field name="print_report_name">(object.get_sales_report_name())</field>
+            <field name="attachment"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_landscape"/>
+        </record>
+    </data>
+</odoo>
