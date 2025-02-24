@@ -20,7 +20,7 @@
                 <button name="action_print_report" type="object" string="Print SO" class="oe_highlight"/>
             </xpath>
             
-            <xpath expr="//field[@name='currency_id']" position="after">
+            <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="no_so" string="Order Number" readonly="state not in ('draft', 'sent', 'to approve', 'purchase')"/>
             </xpath>
         </field>
