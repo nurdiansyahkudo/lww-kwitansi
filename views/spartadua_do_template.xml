@@ -6,7 +6,7 @@
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
                     <!-- Header Section -->
-                    <div class="row" style="border-bottom: 2px solid rgb(0, 0, 0);">
+                    <div class="row" style="border-bottom: 2px solid rgb(62, 54, 180);">
                         <div class="col-6" style="height: 130px; display: flex; flex-direction: column; justify-content: center;">
                             <div class="text" style="font-size: 30px; text-align: left;">
                                 <h1 style="font-size: 2rem; padding-top: 70px;">
@@ -42,7 +42,7 @@
                     <main>
                         <div class="page" style="padding: 10px;">
                             <!-- Address Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid rgb(0, 0, 0)">
+                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid rgb(62, 54, 180)">
                                 <div class="col-6 text-left">
                                     <div class='row'>
                                         <div class='col-3'>
@@ -111,7 +111,7 @@
                                 </div>
                             </div>
                             <!-- Reference and Date Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid rgb(0, 0, 0)">
+                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid rgb(62, 54, 180)">
                                 <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
                                     <thead style="border: 0.5px; background-color: #efefef">
                                         <tr>
