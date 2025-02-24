@@ -6,7 +6,7 @@ class AccountPayment(models.Model):
     _inherit = "account.payment"
 
     amount_to_word = fields.Char(string='Amount in Words', compute='_compute_amount_to_word', store=True)
-    no_kwitansi = fields.Char(string='No. Kwitansi', store=True, required=True)
+    no_kwitansi = fields.Char(string='No. Kwitansi', store=True)
 
     def action_print_report(self):
         company = self.env['res.company'].browse(self.env.company.id)
