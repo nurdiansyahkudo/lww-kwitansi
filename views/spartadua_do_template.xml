@@ -43,7 +43,7 @@
                     <main>
                         <div class="page" style="padding: 10px;">
                             <!-- Address Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid rgb(62, 54, 180)">
+                            <div class="row" style="margin-bottom: 5px; margin-top: 10px;">
                                 <div class="col-6 text-left">
                                     <div class='row' style="border-style: solid; border: 1.5px rgb(62, 54, 180);">
                                         <div class='col-3'>
