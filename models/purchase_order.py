@@ -17,16 +17,15 @@ class PurchaseOrder(models.Model):
             return self.env.ref('lww_kwitansi.action_report_limawira_po').report_action(self)
 
     @api.model_create_multi
-    def create(self, vals):
-        if 'no_po' in vals and vals['no_po']:
-            for record in self:
+    def create(self, vals_list):
+        for vals in vals_list:
+            if 'no_po' in vals and vals['no_po']:
                 existing_record = self.env['purchase.order'].search([
-                    ('no_po', '=', vals['no_po']),
-                    ('id', '!=', record.id)
+                    ('no_po', '=', vals['no_po'])
                 ], limit=1)
                 if existing_record:
-                    raise ValidationError('PO already exist!')
-        return super().write(vals)
+                    raise ValidationError('PO already exists!')
+        return super().create(vals_list)
 
     def write(self, vals):
         if 'no_po' in vals and vals['no_po']:
