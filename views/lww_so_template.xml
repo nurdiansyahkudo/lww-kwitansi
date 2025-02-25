@@ -99,7 +99,7 @@
                                             <p style='text-align: left; font-size: 16px;'><em>Name: </em></p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.name'/>
+                                            <span t-esc='o.partner_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -107,7 +107,7 @@
                                             <p style='text-align: left; font-size: 16px;'><em>Address: </em></p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.street'/>
+                                            <span t-esc='o.partner_id.street'/>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -115,7 +115,7 @@
                                             <p style='text-align: left; font-size: 16px;'><em>City: </em></p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.city'/>
+                                            <span t-esc='o.partner_id.city'/>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -123,7 +123,7 @@
                                             <p style='text-align: left; font-size: 16px;'><em>Region: </em></p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.state_id.name'/>
+                                            <span t-esc='o.partner_id.state_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -131,7 +131,7 @@
                                             <p style='text-align: left; font-size: 16px;'><em>Country: </em></p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.country_id.name'/>
+                                            <span t-esc='o.partner_id.country_id.name'/>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -139,7 +139,7 @@
                                             <p style='text-align: left; font-size: 16px;'><em>Phone: </em></p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.phone'/>
+                                            <span t-esc='o.partner_id.phone'/>
                                         </div>
                                     </div>
                                     <div class='row'>
@@ -147,7 +147,7 @@
                                             <p style='text-align: left; font-size: 16px;'><em>Fax: </em></p>
                                         </div>
                                         <div class='col-9' style='font-size: 16px; border: 1px;'>
-                                            <span t-esc='o.company_id.mobile'/>
+                                            <span t-esc='o.partner_id.mobile'/>
                                         </div>
                                     </div>
                                 </div>
