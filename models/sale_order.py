@@ -26,7 +26,7 @@ class SaleOrder(models.Model):
                 ], limit=1)
                 if existing_record:
                     raise ValidationError('SO already exist!')
-        return super().write(vals)
+        return super().create(vals)
 
     def write(self, vals):
         if 'no_so' in vals and vals['no_so']:
