@@ -34,6 +34,17 @@
             print_report_name="'Purchase Order - %s' % (object.no_po)"
         />
 
+        <!-- PRATAMA DATAMAKSIMA -->
+        <report
+            id="pratama_po_report"
+            model="purchase.order"
+            string="Purchase Order"
+            report_type="qweb-pdf"
+            name="lww_kwitansi.pratama_po_template"
+            file="lww_kwitansi.pratama_po_template"
+            print_report_name="'Purchase Order - %s' % (object.no_po)"
+        />
+
         <!-- PAPERFORMAT POTRAIT -->
         <record id="paperformat_portrait" model="report.paperformat">
             <field name="name">Potrait Format</field>
@@ -102,6 +113,20 @@
             <field name="binding_model_id" ref="purchase.model_purchase_order"/>
             <field name="binding_type">report</field>
             <field name="paperformat_id" ref="lww_kwitansi.paperformat_landscape"/>
+        </record>
+
+        <!-- PRATAMA DATAMAKSIMA -->
+        <record id="action_report_pratama_po" model="ir.action.report">
+        <field name="name">Print PO Pratama</field>
+        <field name="model">purchase.order</field>        
+        <field name="report_name">lww_kwitansi.pratama_po_template</field>
+        <field name="report_file">lww_kwitansi.pratama_po_template</field>
+        <field name="print_report_name">(object.get_print_report_name())</field>
+        <field name="attachment"/>
+        <field name="report_type">qweb-pdf</field>
+        <field name="binding_mode_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_type"/>report<field/>
+        <field name="paperformat_id" ref="lww_kwitansi.paperformat_potrait">    
         </record>
     </data>
 </odoo>

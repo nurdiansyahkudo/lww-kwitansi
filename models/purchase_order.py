@@ -13,6 +13,8 @@ class PurchaseOrder(models.Model):
             return self.env.ref('lww_kwitansi.action_report_bs_po').report_action(self)
         elif company.name == 'PT. SPARTADUA RIBUJAYA':
             return self.env.ref('lww_kwitansi.action_report_spartadua_po').report_action(self)
+         elif company.name == 'PT PRATAMA DATAMAKSIMA':
+            return self.env.ref('lww_kwitansi.action_report_pratama_po').report_action(self)
         else:
             return self.env.ref('lww_kwitansi.action_report_limawira_po').report_action(self)
 
