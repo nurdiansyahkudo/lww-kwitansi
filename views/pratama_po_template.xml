@@ -6,7 +6,7 @@
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
                     <!-- Header Section -->
-                    <div class="row" style="border-bottom: 2px solidrgb(0, 67, 167);">
+                    <div class="row" style="border-bottom: 2px solid #35bdaf;">
                         <div class="col-12">
                             <!-- Company Logo and Address -->
                             <div style="display: flex; align-items: center;">
