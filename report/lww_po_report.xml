@@ -126,7 +126,11 @@
             <field name="report_type">qweb-pdf</field>
             <field name="binding_mode_id" ref="purchase.model_purchase_order"/>
             <field name="binding_type"/>report<field/>
+<<<<<<< HEAD
             <field name="paperformat_id" ref="lww_kwitansi.paperformat_potrait" />    
+=======
+            <field name="paperformat_id" ref="lww_kwitansi.paperformat_potrait"/>    
+>>>>>>> 83a9447b78afc80082aecf5f82f6bac84b86bfe0
         </record>
     </data>
 </odoo>
