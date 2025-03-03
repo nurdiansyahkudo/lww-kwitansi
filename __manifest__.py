@@ -17,7 +17,7 @@
         'views/lww_po_template.xml',
         'views/bs_po_template.xml',
         'views/spartadua_po_template.xml',
-        # 'views/pratama_po_template.xml',
+        'views/pratama_po_template.xml',
         # SALES ORDER
         'report/lww_sales_report.xml',
         'views/lww_so_template.xml',
