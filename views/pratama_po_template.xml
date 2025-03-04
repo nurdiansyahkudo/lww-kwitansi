@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+    <!-- <data> -->
         <!-- Template for Kwitansi -->
         <template id="pratama_po_template">
             <t t-call="web.external_layout">
@@ -126,5 +126,5 @@
                 </t>
             </t>
         </template>
-    </data>
+    <!-- </data> -->
 </odoo>
