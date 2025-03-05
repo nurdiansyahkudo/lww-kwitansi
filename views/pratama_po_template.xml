@@ -13,7 +13,7 @@
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" style="max-width: 350px; height: auto;" />
                             <div class="text" style="font-size: 30px; text-align: left; padding-left: 2.5rem; padding-top: 25px;">
                                 <h1 style="font-size: 30px;">
-                                    <strong>PURCHASE ORDER</strong>
+                                    <strong>bla ORDER</strong>
                                 </h1>
                             </div>
                             <div style="font-size: 12px; line-height: 1.5; text-align: left;">
