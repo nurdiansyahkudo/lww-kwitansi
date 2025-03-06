@@ -195,7 +195,7 @@
                                 <div class="row" style="margin-bottom: 20px; margin-top: 20px;">
                                     <div class="col-5"></div>
                                     <div class="col-7">
-                                        <div class='row'>
+                                        <div class="row">
                                             <!-- Kotak TTD Pertama -->
                                             <div class="col-6" style="display: flex; flex-direction: column; align-items: center;">
                                                 <div style="width: 80%; height: 100px; border: 2px solid black; display: flex; align-items: center; justify-content: center;">
@@ -204,7 +204,6 @@
                                             <div class="col-6" style="display: flex; flex-direction: column; align-items: center;">
                                                 <div style="width: 80%; height: 100px; border: 2px solid black; display: flex; align-items: center; justify-content: center;">
                                                 </div>
-                                                <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%;"></p>
                                             </div>
                                         </div>
                                     </div>
