@@ -94,43 +94,7 @@
                                 </div>
                             </div>
                             <!-- Reference and Date Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid #205295">
-                                <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
-                                    <thead style="border: 0.5px; background-color: #efefef">
-                                        <tr>
-                                            <th style="font-size: 16px; text-align: center;">OUR REF NO</th>
-                                            <th style="font-size: 16px; text-align: center;">DATE</th>
-                                            <th style="font-size: 16px; text-align: center;">VALID</th>
-                                            <th style="font-size: 16px; text-align: center;">POINT OF CHARGE</th>
-                                            <th style="font-size: 16px; text-align: center;">SHIP VIA</th>
-                                            <th style="font-size: 16px; text-align: center;">YOUR REF NO</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <!-- Our Ref No -->
-                                            <td class="text-center" style="font-size: 15px;">
-                                                <span t-esc="(o.name + ' ' + o.no_po) if o.name and o.no_po else (o.name or o.no_po or '')" style="font-size: 15px;"/>
-                                            </td>
-                                        <!-- Date -->
-                                            <td class="text-center" style="font-size: 15px;">
-                                                <span t-esc="(o.date_order or o.date_approve).strftime('%d-%b-%y') if (o.date_order or o.date_approve) else ''" style="font-size: 15px;"/>
-                                            </td>
-                                        <!-- Valid -->
-                                            <td class="text-center" style="font-size: 15px;"><span t-esc="o.date_planned.strftime('%d-%b-%y') or ''" style="font-size: 15px;"/></td>
-                                            <!-- <td class="text-center" style="font-size: 15px;"></td> -->
-                                        <!-- Point of Charge -->
-                                            <td class="text-center" style="font-size: 15px;"><span t-esc="o.incoterm_id.name or ''" style="font-size: 15px;"/></td>
-                                        <!-- Ship Via (Link to Receipt on carrier_id.name) -->
-                                            <!-- <td class="text-center" style="font-size: 15px;"><span t-esc="o.project_id.name or ''" style="font-size: 15px;"/></td> -->
-                                            <td class="text-center" style="font-size: 15px;"></td>
-                                        <!-- Your Ref No -->
-                                            <!-- <td class="text-center" style="font-size: 15px;"><span t-esc="o.origin or ''" style="font-size: 15px;"/></td> -->
-                                            <td class="text-center" style="font-size: 15px;"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            
                             <!-- Table Product -->
                             <div class="row" style="margin-bottom: 5px; margin-top: 10px;">
                                 <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
