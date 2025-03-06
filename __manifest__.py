@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Limawira PDF",
+    'name': "Limawira Kwitansi",
     'summary': '',
     'author': '',
     'category': 'Uncategorized',
