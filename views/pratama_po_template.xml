@@ -195,14 +195,14 @@
                                 <div class="row" style="margin-bottom: 20px; margin-top: 20px;">
                                     <div class="col-5"></div>
                                     <div class="col-7">
-                                        <div class="row">
+                                        <div class="row" style="margin-bottom: 0; margin-top: 0;">
                                             <!-- Kotak TTD Pertama -->
-                                            <div class="col-6" style="display: flex; flex-direction: column; align-items: center;">
+                                            <div class="col-6" style="display: flex; flex-direction: column; align-items: center; padding: 0;">
                                                 <div style="width: 80%; height: 100px; border: 2px solid black; display: flex; align-items: center; justify-content: center;">
                                                 </div>
                                             </div>
                                             <!-- Kotak TTD Kedua -->
-                                            <div class="col-6" style="display: flex; flex-direction: column; align-items: center;">
+                                            <div class="col-6" style="display: flex; flex-direction: column; align-items: center; padding: 0;">
                                                 <div style="width: 80%; height: 100px; border: 2px solid black; display: flex; align-items: center; justify-content: center;">
                                                 </div>
                                             </div>
