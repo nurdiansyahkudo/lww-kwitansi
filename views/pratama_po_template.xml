@@ -6,7 +6,7 @@
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
                     <!-- Header Section -->
-                    <div class="row" style="border-bottom: 2px solid #03346E;">
+                    <div class="row" style="border-bottom: 2px solid #205295;">
                         <div class="col-6">
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" 
                             style="max-width: 350px; height: auto;" />
@@ -32,7 +32,7 @@
                     <main>
                         <div class="page">
                             <!-- Address Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid #03346E">
+                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid #205295">
                                 <div class="col-6 text-left">
                                     <strong style="font-size: 16px; margin-left: 5rem;">To: </strong>
                                     <div class='row'>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <!-- Reference and Date Section -->
-                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid #03346E">
+                            <div class="row" style="margin-bottom: 5px; margin-top: 10px; border-bottom: 2px solid #205295">
                                 <table class="table table-sm" style="margin-bottom: 5px; border: 0.5px;">
                                     <thead style="border: 0.5px; background-color: #efefef">
                                         <tr>
@@ -175,7 +175,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class='row' style="margin-bottom: 5px; margin-top: 5px; border-bottom: 2px solid #03346E">
+                            <div class='row' style="margin-bottom: 5px; margin-top: 5px; border-bottom: 2px solid #205295">
                                 <div class="col-8"></div>
                                 <div class="col-4">
                                     <p style='text-align: left; font-size: 16px;'><em style="font-weight: bold;">Sub Total: </em>
