@@ -13,11 +13,10 @@
                             <div style="font-size: 12px; line-height: 1.5; text-align: left;">
                                 <p>
                                     <span t-esc="o.company_id.street"/> <br/>
-                                    <span t-esc="o.company_id.street2"/>
+                                    <span t-esc="o.company_id.street2"/> <br/>
                                     <span t-esc="o.company_id.city"/> - <span t-esc="o.company_id.zip"/>, 
                                     <span t-esc="o.company_id.country_id.name"/><br/>
-                                    Telp. <span t-esc="o.company_id.phone"/>
-                                    Fax. <span t-esc="o.company_id.mobile"/>
+                                    Telp. <span t-esc="o.company_id.phone"/> Fax. <span t-esc="o.company_id.mobile"/>
                                 </p>
                             </div>
                         </div>
