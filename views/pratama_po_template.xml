@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <!-- Template for Kwitansi -->
-        <template id="lww_po_template">
+        <template id="pratama_po_template">
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
                     <!-- Header Section -->
@@ -313,10 +313,10 @@
         </template>
 
         <!-- Wrapper Template -->
-        <template id="lww_po">
+        <template id="pratama_po">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
-                    <t t-call="lww_po_template" t-lang="o.partner_id.lang"/>
+                    <t t-call="pratama_po_template" t-lang="o.partner_id.lang"/>
                 </t>
             </t>
         </template>
