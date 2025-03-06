@@ -26,20 +26,6 @@
                                     <strong>PURCHASE ORDER</strong>
                                 </h1>
                             </div>
-                            <div class='col-3'>
-                                    <p style='text-align: left; font-size: 14px;'>NO : </p>
-                                </div>
-                                <div class='col-9' style='font-size: 14px; border: 1px;'>
-                                    : <span t-esc="o.no_po or ''"/>
-                                </div>
-                            </div>
-                            <div class='col-3'>
-                                    <p style='text-align: left; font-size: 14px;'>Tanggal : </p>
-                                </div>
-                                <div class='col-9' style='font-size: 14px; border: 1px;'>
-                                    : <span t-esc="(o.date_order or o.date_approve).strftime('%d-%b-%y') if (o.date_order or o.date_approve) else ''" style="font-size: 15px;"/>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <!-- Main Section -->
