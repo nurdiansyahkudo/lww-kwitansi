@@ -5,19 +5,13 @@
     'author': '',
     'category': 'Uncategorized',
     'version': '1.0',
-    'depends': ['base', 'purchase', 'sale', 'account', 'stock'],
+    'depends': ['base', 'sale', 'account', 'stock'],
     'data': [
         # KWITANSI
         'report/lww_kwitansi_report.xml',
         'views/lww_kwitansi_template.xml',
         'views/bs_kwitansi_template.xml',
         'views/spartadua_kwitansi_template.xml',
-        # PURCHASE ORDER
-        'report/lww_po_report.xml',
-        'views/lww_po_template.xml',
-        'views/bs_po_template.xml',
-        'views/spartadua_po_template.xml',
-        'views/pratama_po_template.xml',
         # SALES ORDER
         'report/lww_sales_report.xml',
         'views/lww_so_template.xml',
@@ -35,7 +29,6 @@
         'views/spartadua_do_template.xml',
         # FORM VIEW
         'views/account_payment_view.xml',
-        'views/purchase_order_view.xml',
         'views/sale_order_view.xml',
         'views/stock_picking_view.xml',
         'views/stock_scrap_view.xml',
