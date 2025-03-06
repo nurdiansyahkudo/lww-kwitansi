@@ -10,7 +10,7 @@
                         <div class="col-6">
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" 
                             style="max-width: 350px; height: auto;" />
-                            <div style="font-size: 12px; line-height: 1.5; text-align: right;">
+                            <div style="font-size: 12px; line-height: 1.5; text-align: left;">
                                 <p>
                                     <span t-esc="o.company_id.street"/> <br/>
                                     <span t-esc="o.company_id.street2"/> <br/>
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="col-6" style="height: 150px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="text" style="font-size: 30px; text-align: left; padding-left: 2.5rem; padding-top: 50px;">
+                            <div class="text" style="font-size: 30px; text-align: center; padding-top: 50px;">
                                 <h1 style="font-size: 2rem;">
                                     <strong>PURCHASE ORDER</strong>
                                 </h1>
