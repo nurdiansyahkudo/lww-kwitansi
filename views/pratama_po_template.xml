@@ -192,21 +192,22 @@
                                     </div>
                                 </div>
                                 <!-- Signature Section -->
-                                <div style="page-break-after: auto;">
-                                    <div class="row" style="margin-bottom: 5px; margin-top: 120px;">
-                                        <div class="col-4"></div>
-                                        <div class="col-4">
-                                            <p style='text-align: center; font-size: 16px;'>Yours Faithfully, </p>
-                                        </div>
-                                        <div class="col-4"></div>
-                                    </div>
-                                    <div class="row" style="margin-bottom: 5px; margin-top: 120px;">
-                                        <div class="col-4 text-center">
-                                            <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%; margin-left: 30px;"></p>
-                                        </div>
-                                        <div class="col-4"></div>
-                                        <div class="col-4 text-center">
-                                            <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%; margin-left: 30px;"></p>
+                                <div class="row" style="margin-bottom: 10px; margin-top: 10px;">
+                                    <div class="col-5"></div>
+                                    <div class="col-7">
+                                        <div class='row'>
+                                            <div class='col-6'>
+                                                <p style='text-align: center; font-size: 16px;'>Prepared by, </p>
+                                                <p style='text-align: left; font-size: 16px;'>Name : </p>
+                                                <p style='text-align: left; font-size: 16px;'>Date : </p>
+                                                <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%;"></p>
+                                            </div>
+                                            <div class='col-6' style='font-size: 16px; margin-left: 0.5rem;'>
+                                                <p style='text-align: center; font-size: 16px;'>Approved by, </p>
+                                                <p style='text-align: left; font-size: 16px;'>Name : </p>
+                                                <p style='text-align: left; font-size: 16px;'>Date : </p>
+                                                <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%;"></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
