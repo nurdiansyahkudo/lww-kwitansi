@@ -197,15 +197,9 @@
                                     <div class="col-7">
                                         <div class='row'>
                                             <div class='col-6'>
-                                                <p style='text-align: center; font-size: 16px;'>Prepared by, </p>
-                                                <p style='text-align: left; font-size: 16px;'>Name : </p>
-                                                <p style='text-align: left; font-size: 16px;'>Date : </p>
                                                 <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%;"></p>
                                             </div>
                                             <div class='col-6' style='font-size: 16px; margin-left: 0.5rem;'>
-                                                <p style='text-align: center; font-size: 16px;'>Approved by, </p>
-                                                <p style='text-align: left; font-size: 16px;'>Name : </p>
-                                                <p style='text-align: left; font-size: 16px;'>Date : </p>
                                                 <p style="text-align: center; margin-top: 120px; border-bottom: 1px solid; width: 80%;"></p>
                                             </div>
                                         </div>
