@@ -2,29 +2,29 @@
 <odoo>
     <data>
         <!-- Template for Kwitansi -->
-        <template id="pratama_po_template">
+        <template id="lww_po_template">
             <t t-call="web.external_layout">
                 <t t-foreach="docs" t-as="o">
                     <!-- Header Section -->
                     <div class="row" style="border-bottom: 2px solid #35bdaf;">
+                        <div class="col-6" style="height: 150px; display: flex; flex-direction: column; justify-content: center;">
+                            <div class="text" style="font-size: 30px; text-align: left; padding-left: 2.5rem; padding-top: 50px;">
+                                <h1 style="font-size: 2rem;">
+                                    <strong>PURCHASE ORDER</strong>
+                                </h1>
+                            </div>
+                        </div>
                         <div class="col-6">
                             <img t-if="o.company_id.logo" t-att-src="'data:image/png;base64,%s' % o.company_id.logo.decode()" 
                             style="max-width: 350px; height: auto;" />
-                            <div style="font-size: 12px; line-height: 1.5; text-align: left;">
+                            <div style="font-size: 12px; line-height: 1.5; text-align: right;">
                                 <p>
                                     <span t-esc="o.company_id.street"/> <br/>
-                                    <span t-esc="o.company_id.street2"/> <br/>
                                     <span t-esc="o.company_id.city"/> - <span t-esc="o.company_id.zip"/>, 
                                     <span t-esc="o.company_id.country_id.name"/><br/>
-                                    Telp. <span t-esc="o.company_id.phone"/> Fax. <span t-esc="o.company_id.mobile"/>
+                                    Telepon: <span t-esc="o.company_id.phone"/><br/>
+                                    Fax: <span t-esc="o.company_id.mobile"/>
                                 </p>
-                            </div>
-                        </div>
-                        <div class="col-6" style="height: 150px; display: flex; flex-direction: column; justify-content: center;">
-                            <div class="text" style="font-size: 26px; text-align: left; padding-left: 2.5rem; padding-top: 25px;">
-                                <h1 style="font-size: 26px;">
-                                    <strong>PURCHASE ORDER</strong>
-                                </h1>
                             </div>
                         </div>
                     </div>
@@ -316,7 +316,7 @@
         <template id="pratama_po">
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="o">
-                    <t t-call="prata_po_template" t-lang="o.partner_id.lang"/>
+                    <t t-call="lww_po_template" t-lang="o.partner_id.lang"/>
                 </t>
             </t>
         </template>
