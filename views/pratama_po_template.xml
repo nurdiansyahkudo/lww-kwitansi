@@ -19,7 +19,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="row" style="width: 100%; display: flex; justify-content: center; margin-top: 10px;">
+                        <div class="row" style="display: flex; justify-content: center; margin-top: 10px;">
                             <div class="col-12" style="height: 150px; display: flex; justify-content: center; align-items: center;">
                                 <div class="text" style="font-size: 26px; text-align: center;">
                                     <h1 style="font-size: 26px; margin: 0;">
