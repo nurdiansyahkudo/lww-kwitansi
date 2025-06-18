@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <template id="custom_external_layout" inherit_id="web.external_layout">
+    <template id="custom_basic_layout" inherit_id="web.basic_layout">
         <xpath expr="//div[contains(@t-attf-class, 'header')]" position="replace"/>
         <xpath expr="//div[contains(@t-attf-class, 'footer')]" position="replace"/>
     </template>
